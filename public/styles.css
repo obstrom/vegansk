@@ -60,7 +60,7 @@ h1.title {
     /* Rectangle 6539 */
     width: 100%;
     padding: 1em 1.5em;
-    font-size: 0.8em;
+    font-size: 16px;
     background: var(--color-bg-gray); /* Gray 6 */
     border: 0.866667px solid var(--color-gray); /* Gray 4 */
     box-sizing: border-box;
@@ -79,6 +79,15 @@ h1.title {
     margin-top: 5vh; /*5% viewport height*/
     text-transform: uppercase;
     font-weight: bold;
+}
+
+#search-button:hover,
+#search-button:active {
+    filter: brightness(85%);
+}
+
+#search-input:hover {
+    filter: brightness(95%);
 }
 
 .info-container {
