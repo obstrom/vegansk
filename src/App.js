@@ -1,6 +1,6 @@
 function App() {
     return (
-        <div className="App container">
+        <div className="App container d-flex flex-column justify-content-center">
             <h1 className="title">Är den vegansk?</h1>
             {/*<div className="scanner-container">
                 <div className="scanner-icon-wrapper text-center">
@@ -76,7 +76,7 @@ function App() {
                     är veganska eller inte.
                 </p>
     </div>*/}
-            <div className="footer-container"></div>
+            <div className="footer-contain"></div>
         </div>
     );
 }

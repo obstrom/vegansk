@@ -12,107 +12,63 @@
 
 body {
     /* Rectangle 6722 */
-    /*position: absolute;
-    width: 376px;
-    height: 812px;
-    left: -1px;
-    top: 0px;*/
-
     font-family: "Poppins", sans-serif;
-
-    /* Mörkgrön */
-    background: var(--color-bg-dark);
+    background: var(--color-bg-dark); /* Mörkgrön */
 }
 
 .App {
     max-width: 600px;
+    height: 100vh; /* max height */
 }
 
 h1.title {
+    margin-bottom: 10vh; /* 10% viewport height */
+
     /* ÄR DEN VEGANSK? */
-
-    /*position: absolute;
-    width: 304px;
-    height: 111px;
-    left: 36px;
-    top: 70px;*/
-    margin-top: 2em;
     text-transform: uppercase;
-
-    /* Hero 47pt */
     font-style: normal;
     font-weight: 900;
     font-size: 50px;
     line-height: 102%;
-    /* or 51px */
     text-align: center;
     letter-spacing: 0.01em;
-
-    /* Senapsgul */
-    color: var(--color-accent);
+    color: var(--color-accent); /* Senapsgul */
 }
 
-.scanner-container {
-    /* Rectangle 6540 */
-
-    /*position: absolute;
-    width: 303px;
-    height: 196px;
-    left: 36px;
-    top: 210px;*/
-
+/*.scanner-container {
     margin: 2em 0em;
     padding: 4em;
-
-    /* Ljus sandgrå */
     background: var(--color-bg-light);
     border-radius: 10px;
-}
+}*/
 
-.scanner-text {
-    /* Scanna streckkod */
-
-    /*position: absolute;
-    width: 145.57px;
-    height: 23.7px;
-    left: 115px;
-    top: 337px;*/
-
+/*.scanner-text {
     margin-top: 1em;
     font-style: normal;
     font-weight: bold;
     font-size: 15.6px;
     line-height: 23px;
-    /* identical to box height */
     text-align: center;
-
-    /* Mörkgrön */
     color: var(--color-bg-dark);
-}
+}*/
 
-.scanner-icon {
+/*.scanner-icon {
     text-align: center;
-}
+}*/
 
 #search-input {
     /* Rectangle 6539 */
-
-    /*position: absolute;
-    width: 304px;
-    height: 44px;
-    left: 35px;
-    top: 456px;*/
-
     width: 100%;
-    padding: 0.8em;
+    padding: 1em 1.5em;
     font-size: 0.8em;
-
-    /* Gray 6 */
-    background: var(--color-bg-gray);
-    /* Gray 4 */
-    border: 0.866667px solid var(--color-gray);
+    background: var(--color-bg-gray); /* Gray 6 */
+    border: 0.866667px solid var(--color-gray); /* Gray 4 */
     box-sizing: border-box;
     border-radius: 29px;
+}
+
+#search-input:focus {
+    outline: none;
 }
 
 #search-button {
@@ -120,24 +76,16 @@ h1.title {
     padding: 0.5em;
     min-width: 10em;
     border: none;
-    margin-top: 2em;
+    margin-top: 5vh; /*5% viewport height*/
     text-transform: uppercase;
     font-weight: bold;
 }
 
 .info-container {
     /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
-
-    /*position: absolute;
-    width: 285px;
-    height: 145px;
-    left: 36px;
-    top: 550px;*/
-
     margin-top: 4em;
     font-style: normal;
     text-align: center;
-
     color: var(--color-pure-white);
 }
 
@@ -151,4 +99,17 @@ h1.title {
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
+}
+
+/* when screen size is smaller then 800px */
+@media screen and (max-width: 800px) {
+    .App {
+        max-width: 90vw; /* 90% viewport width */
+        margin-top: 10vh; /* 20% viewport height */
+        height: inherit;
+    }
+
+    h1.title {
+        margin-bottom: 20vh;
+    }
 }
