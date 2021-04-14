@@ -18,7 +18,7 @@ body {
 
 .App {
     max-width: 600px;
-    height: 100vh; /* max height */
+    margin-top: 30vh; /* 10% viewport height */
 }
 
 h1.title {
@@ -71,6 +71,15 @@ h1.title {
     outline: none;
 }
 
+#search-input::-webkit-search-cancel-button {
+    font-size: 1.5em;
+}
+
+#search-input::placeholder {
+    color: #000;
+    opacity: 0.8;
+}
+
 #search-button {
     background: var(--color-accent);
     padding: 0.5em;
@@ -110,11 +119,33 @@ h1.title {
     line-height: 24px;
 }
 
+.search-results {
+    margin-top: 2em;
+    width: 100%;
+}
+
+.search-results li {
+    color: var(--color-pure-white);
+    padding: 1em;
+}
+
+.sticky-fade {
+    position: fixed;
+    height: 30vh;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(56, 81, 75, 1) 0%,
+        rgba(56, 81, 75, 0) 100%
+    );
+}
+
 /* when screen size is smaller then 800px */
 @media screen and (max-width: 800px) {
     .App {
         max-width: 90vw; /* 90% viewport width */
-        margin-top: 10vh; /* 20% viewport height */
+        margin-top: 10vh; /* 10% viewport height */
         height: inherit;
     }
 
