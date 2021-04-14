@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchResults from "./components/SearchResults";
+import StartInfo from "./components/StartInfo";
 
 function App() {
     const [searchInput, setSearchInput] = useState("");
@@ -88,13 +89,7 @@ function App() {
                 />
                 <button id="search-button">Sök</button>
             </div>
-            <div className="info-container">
-                <h2>Vi vill hjälpa dig!</h2>
-                <p>
-                    Sök efter varumärke, produkt eller ingrediens för att vara
-                    säker på om de är veganska eller inte.
-                </p>
-            </div>
+            {!showSearch && <StartInfo />}
             {showSearch && <SearchResults />}
         </div>
     );
