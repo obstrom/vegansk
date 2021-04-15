@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+    --color-bg-dark: #38514b; /* Mörkgrön */
+    --color-bg-light: #eee7d5; /* Ljus sandgrå */
+    --color-pure-white: #fff;
+    /*--color-off-white: #f2f2f2; /* /* Gray 6 */
+    --color-bg-gray: #c4c4c4;
+    --color-gray: #bdbdbd; /* Gray 4 */
+    --color-accent: #f5c300; /* Senapsgul */
+}
+
+body {
+    /* Rectangle 6722 */
+    font-family: "Poppins", sans-serif;
+    background: var(--color-bg-dark); /* Mörkgrön */
+}
+
+.App {
+    max-width: 600px;
+    margin-top: 30vh; /* 10% viewport height */
+}
+
+h1.title {
+    margin-bottom: 10vh; /* 10% viewport height */
+
+    /* ÄR DEN VEGANSK? */
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 102%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: var(--color-accent); /* Senapsgul */
+}
+
+/*.scanner-container {
+    margin: 2em 0em;
+    padding: 4em;
+    background: var(--color-bg-light);
+    border-radius: 10px;
+}*/
+
+/*.scanner-text {
+    margin-top: 1em;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15.6px;
+    line-height: 23px;
+    text-align: center;
+    color: var(--color-bg-dark);
+}*/
+
+/*.scanner-icon {
+    text-align: center;
+}*/
+
+#search-input {
+    /* Rectangle 6539 */
+    width: 100%;
+    padding: 1em 1.5em;
+    font-size: 16px;
+    background: var(--color-bg-gray); /* Gray 6 */
+    border: 0.866667px solid var(--color-gray); /* Gray 4 */
+    box-sizing: border-box;
+    border-radius: 29px;
+}
+
+#search-input:focus {
+    outline: none;
+}
+
+#search-input::-webkit-search-cancel-button {
+    font-size: 1.5em;
+}
+
+#search-input::placeholder {
+    color: #000;
+    opacity: 0.8;
+}
+
+#search-button {
+    background: var(--color-accent);
+    padding: 0.5em;
+    min-width: 10em;
+    border: none;
+    margin-top: 5vh; /*5% viewport height*/
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#search-button:hover,
+#search-button:active {
+    filter: brightness(85%);
+}
+
+#search-input:hover {
+    filter: brightness(95%);
+}
+
+.info-container {
+    /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
+    margin-top: 4em;
+    font-style: normal;
+    text-align: center;
+    color: var(--color-pure-white);
+}
+
+.info-container.h2 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.info-container.p {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.search-results {
+    margin-top: 2em;
+    width: 100%;
+}
+
+.search-results li {
+    color: var(--color-pure-white);
+    padding: 1em;
+}
+
+.sticky-fade {
+    position: fixed;
+    height: 30vh;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(56, 81, 75, 1) 0%,
+        rgba(56, 81, 75, 0) 100%
+    );
+}
+
+/* when screen size is smaller then 800px */
+@media screen and (max-width: 800px) {
+    .App {
+        max-width: 90vw; /* 90% viewport width */
+        margin-top: 10vh; /* 10% viewport height */
+        height: inherit;
+    }
+
+    h1.title {
+        margin-bottom: 20vh;
+    }
+}
