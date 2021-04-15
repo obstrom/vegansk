@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Bregott normalsaltat",
+        "searchName": "smör",
+        "producer": "Arla",
+        "vegan": false
+    },
+    {
+        "name": "Flora original",
+        "searchName": "smör",
+        "producer": "Flora",
+        "vegan": true
+    },
+    {
+        "name": "Lätta original",
+        "searchName": "smör",
+        "producer": "Lätta",
+        "vegan": false
+    },
+    {
+        "name": "Becel lätt",
+        "searchName": "smör",
+        "producer": "Becel",
+        "vegan": false
+    },
+    {
+        "name": "Vegan bredbart",
+        "searchName": "smör",
+        "producer": "Naturli",
+        "vegan": true
+    },
+    {
+        "name": "Ekologiskt vegogott",
+        "searchName": "smör",
+        "producer": "Garant",
+        "vegan": true
+    }
+]
