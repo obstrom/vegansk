@@ -12,7 +12,7 @@ export default createServer({
             },
             {
                 id: 2,
-                name: "Flora original",
+                name: "Flora 100% Växtbaserad",
                 producer: "Flora",
                 searchTags: ["flora", "original", "smör"],
                 vegan: true,
