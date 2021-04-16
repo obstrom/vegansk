@@ -29,7 +29,7 @@ const SearchResults = ({ renderData = [] }) => {
                         <span className="product-name flex-grow-1">
                             {`${product.producer} - ${product.name}`}
                         </span>
-                        <div className={"vegan-mark vegan-" + product.vegan}>
+                        <div className={`vegan-mark vegan-${product.vegan}`}>
                             <img src={renderVeganThumb(product.vegan)}></img>
                         </div>
                     </li>
