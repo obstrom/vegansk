@@ -21,15 +21,13 @@ const SearchResults = ({ renderData = [] }) => {
         <div className="search-results">
             <ul>
                 {renderData.map((product) => (
-                    <li id={"result-" + product.id} className="d-flex">
+                    <li id={`result-${product.id}`} className="d-flex">
                         <img
                             className="product-image"
-                            src={
-                                "images/products/product-" + product.id + ".jpg"
-                            }
+                            src={`images/products/product-${product.id}.jpg`}
                         />
                         <span className="product-name flex-grow-1">
-                            {product.producer + " - " + product.name}
+                            {`${product.producer} - ${product.name}`}
                         </span>
                         <div className={"vegan-mark vegan-" + product.vegan}>
                             <img src={renderVeganThumb(product.vegan)}></img>
