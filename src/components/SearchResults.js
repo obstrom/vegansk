@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const SearchResults = ({ renderData = [] }) => {
     // No results found
@@ -21,18 +21,33 @@ const SearchResults = ({ renderData = [] }) => {
         <div className="search-results">
             <ul>
                 {renderData.map((product) => (
-                    <li id={`result-${product.id}`} className="d-flex">
-                        <img
-                            className="product-image"
-                            src={`images/products/product-${product.id}.jpg`}
-                        />
-                        <span className="product-name flex-grow-1">
-                            {`${product.producer} - ${product.name}`}
-                        </span>
-                        <div className={`vegan-mark vegan-${product.vegan}`}>
-                            <img src={renderVeganThumb(product.vegan)}></img>
-                        </div>
-                    </li>
+                    <Link
+                        key={product.id}
+                        to={`/products/product-${product.id}`}
+                    >
+                        <li id={`result-${product.id}`} className="d-flex">
+                            <img
+                                className="product-image"
+                                src={`images/products/product-${product.id}.jpg`}
+                                alt={`Produkt ${product.producer} - ${product.name}`}
+                            />
+                            <span className="product-name flex-grow-1">
+                                {`${product.producer} - ${product.name}`}
+                            </span>
+                            <div
+                                className={`vegan-mark vegan-${product.vegan}`}
+                            >
+                                <img
+                                    alt={
+                                        product.vegan
+                                            ? "Vegansk produkt"
+                                            : "Ej vegansk produkt"
+                                    }
+                                    src={renderVeganThumb(product.vegan)}
+                                ></img>
+                            </div>
+                        </li>
+                    </Link>
                 ))}
             </ul>
         </div>

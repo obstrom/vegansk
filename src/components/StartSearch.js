@@ -1,23 +1,22 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import StartInfo from "./StartInfo";
 import SearchResults from "./SearchResults";
-import createServer from "./ProductList";
 
-function StartSearch() {
+function StartSearch(props) {
+    const productList = props.allProductsList;
+    const [filteredList, setFilteredList] = useState(productList);
     const [showSearchResults, setShowSearchResults] = useState(false);
-    const [productList, setProductList] = useState([]);
-    const [filteredList, setFilteredList] = useState([]);
 
     const searchInputElement = useRef(null);
 
-    const fetchData = async () => {
+    /*const fetchData = async () => {
         return await fetch("./api/products")
             .then((res) => res.json())
             .then((data) => {
                 setProductList(data);
                 setFilteredList(data);
             });
-    };
+    };*/
 
     const updateFilteredList = async (query) => {
         const filtered = productList.filter((product) => {
@@ -48,9 +47,9 @@ function StartSearch() {
         }
     };
 
-    useEffect(() => {
+    /*useEffect(() => {
         fetchData();
-    }, []);
+    }, []);*/
 
     return (
         <>
