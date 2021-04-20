@@ -32,7 +32,7 @@ h1.title {
     line-height: 102%;
     text-align: center;
     letter-spacing: 0.01em;
-    color: var(--color-accent); /* Senapsgul */
+     /* Senapsgul */
 }
 
 /*.scanner-container {
@@ -152,4 +152,121 @@ h1.title {
     h1.title {
         margin-bottom: 20vh;
     }
+}
+
+.Product{
+    background: var(--color-pure-white);
+    /*position: absolute;*/
+    width: 375px;
+    height: 812px;
+    left: 2530px;
+    top: 1747px;
+    padding: unset;
+}
+.top{
+    background: var(--color-bg-dark);
+    font-style: normal;
+    font-weight: 900;
+    font-size: 148.025px;
+    line-height: 102%;
+    /*or 151px*/
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 00.01em;
+    color: var(--color-accent);
+}
+
+/*Rectangle 375x812*/
+.specify-answer{                        /*Vilken font-size? på "Vegansk"*/
+   /* font-weight: 700;
+    font-style: normal;
+    font-size: 28,05px;*/
+
+
+    /* JA VEGANSK
+/*position: absolute;  Om denna kodrad används kastas "Vegansk" ut ur centreringen.*/
+
+
+/* ny CSS 20/4 */
+/* VEGANSK */
+
+/* position: absolute; */
+left: 27.11%;
+right: 29.47%;
+top: 64.81%;
+bottom: 15.37%;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 32.229px;
+line-height: 48px;
+/* identical to box height */
+text-align: center;
+
+/* Senapsgul */
+color: #F5C300;
+
+
+
+}
+
+.product-name{
+
+/*width: 373.27px;  prova margin, och vh, pt eller em som enhet. För text kan man använda pt, em.
+height: 39.36px;
+left: 67.87px;
+top: 344.76px;
+padding-bottom: 20x;*/
+
+margin: 10 em;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 29.8613px;
+line-height: 45px;
+text-align: center;
+
+color: #000000;
+
+}
+
+.ingredients{
+/*position: absolute;*/
+width: 145px;
+height: 33px;
+left: 100em;
+top: 382px;
+
+/* H1 24pt */
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 33px;
+/* identical to box height */
+
+
+color: #000000;
+}
+.ingredient-list{
+    /*position: absolute;*/
+list-style: none;
+width: 238px;
+height: 199px;
+left: 56px;
+top: 434px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 27px;
+letter-spacing: 0.01em;
+
+color: #000000;
+text-align: left;
+
 }

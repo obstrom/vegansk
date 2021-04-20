@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import SearchResults from "./components/SearchResults";
 import StartInfo from "./components/StartInfo";
+import Product from "./components/Product";
 // import ScannerBox from "./components/ScannerBox";
 
 function App() {
-    const [searchInput, setSearchInput] = useState("");
+    /*const [searchInput, setSearchInput] = useState("");
     const [showSearch, setShowSearch] = useState(false);
 
     useEffect(() => {
@@ -13,11 +14,12 @@ function App() {
         } else {
             setShowSearch(false);
         }
-    });
+    });*/
 
     return (
         <>
-        <div className="App container d-flex flex-column">
+        <Product/>
+        {/*<div className="App container d-flex flex-column">
             <h1 className="title">Är den vegansk?</h1>
             <div className="input-container text-center">
                 <input
@@ -31,7 +33,7 @@ function App() {
             {!showSearch && <StartInfo />}
             {showSearch && <SearchResults />}
         </div>
-        {showSearch && <div class="sticky-fade"></div>}
+    {showSearch && <div class="sticky-fade"></div>}*/}
         </>
     );
 }
