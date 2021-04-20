@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Product from "./components/Product";
-// import ScannerBox from "./components/ScannerBox";
+import createServer from "./components/ProductList";
 
 function App() {
     const [allProducts, setAllProducts] = useState([]);
 
-    /*const fetchData = async () => {
+    const fetchData = async () => {
         return await fetch("./api/products")
             .then((res) => res.json())
             .then((data) => {
@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {
         fetchData();
-    }, []);*/
+    }, []);
 
     return (
         <>
@@ -26,11 +26,16 @@ function App() {
                     <Route
                         path="/"
                         exact
-                        component={(allProducts) => (
-                            <Home products={allProducts} />
+                        component={(props) => (
+                            <Home {...props} allProducts={allProducts} />
                         )}
                     />
-                    <Route path="/products/" component={Product} />
+                    <Route
+                        path="/products/"
+                        component={(props) => (
+                            <Product {...props} productDataAll={allProducts} />
+                        )}
+                    />
                 </Switch>
             </Router>
         </>
