@@ -1,17 +1,38 @@
-import StartSearch from './components/StartSearch'
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import Product from "./components/Product";
 // import ScannerBox from "./components/ScannerBox";
 
 function App() {
+    const [allProducts, setAllProducts] = useState([]);
+
+    /*const fetchData = async () => {
+        return await fetch("./api/products")
+            .then((res) => res.json())
+            .then((data) => {
+                setAllProducts(data);
+            });
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);*/
+
     return (
         <>
-        <div className="App container d-flex flex-column">
-            <div className="title-container">
-                <img src="images/ica.svg" className="title-icon"></img>
-                <h1 className="title">Är den vegansk?</h1>
-            </div>
-            <StartSearch />
-        </div>
-        {/*showSearch && <div class="sticky-fade"></div>*/}
+            <Router>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact
+                        component={(allProducts) => (
+                            <Home products={allProducts} />
+                        )}
+                    />
+                    <Route path="/products/" component={Product} />
+                </Switch>
+            </Router>
         </>
     );
 }

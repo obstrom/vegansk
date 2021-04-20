@@ -3,10 +3,10 @@ import StartInfo from "./StartInfo";
 import SearchResults from "./SearchResults";
 import createServer from "./ProductList";
 
-function StartSearch() {
+function StartSearch({ products = [] }) {
     const [showSearchResults, setShowSearchResults] = useState(false);
-    const [productList, setProductList] = useState([]);
-    const [filteredList, setFilteredList] = useState([]);
+    const [productList, setProductList] = useState(products);
+    const [filteredList, setFilteredList] = useState(products);
 
     const searchInputElement = useRef(null);
 
