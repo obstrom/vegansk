@@ -113,13 +113,13 @@ h1.title {
     color: var(--color-pure-white);
 }
 
-.info-container.h2 {
-    font-weight: bold;
+.info-container h2 {
     font-size: 24px;
     line-height: 36px;
+    font-weight: 700;
 }
 
-.info-container.p {
+.info-container p {
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
@@ -150,6 +150,7 @@ h1.title {
 .search-results .product-image {
     width: 4em;
     margin-right: 1em;
+    height: fit-content;
 }
 
 .search-results .vegan-mark {
