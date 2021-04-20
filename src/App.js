@@ -1,37 +1,17 @@
-import { useState, useEffect } from "react";
-import SearchResults from "./components/SearchResults";
-import StartInfo from "./components/StartInfo";
+import StartSearch from './components/StartSearch'
 // import ScannerBox from "./components/ScannerBox";
 
 function App() {
-    const [searchInput, setSearchInput] = useState("");
-    const [showSearch, setShowSearch] = useState(false);
-
-    useEffect(() => {
-        if (searchInput) {
-            setShowSearch(true);
-        } else {
-            setShowSearch(false);
-        }
-    });
-
     return (
         <>
         <div className="App container d-flex flex-column">
-            <h1 className="title">Är den vegansk?</h1>
-            <div className="input-container text-center">
-                <input
-                    id="search-input"
-                    placeholder="Sök produkt ..."
-                    type="search"
-                    onChange={(e) => setSearchInput(e.target.value)}
-                />
-                <button id="search-button">Sök</button>
+            <div className="title-container">
+                <img src="images/ica.svg" className="title-icon"></img>
+                <h1 className="title">Är den vegansk?</h1>
             </div>
-            {!showSearch && <StartInfo />}
-            {showSearch && <SearchResults />}
+            <StartSearch />
         </div>
-        {showSearch && <div class="sticky-fade"></div>}
+        {/*showSearch && <div class="sticky-fade"></div>*/}
         </>
     );
 }

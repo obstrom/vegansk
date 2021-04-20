@@ -4,6 +4,7 @@
     --color-bg-dark: #38514b; /* Mörkgrön */
     --color-bg-light: #eee7d5; /* Ljus sandgrå */
     --color-pure-white: #fff;
+    --color-bg-off-gray: #e6e7ec;
     /*--color-off-white: #f2f2f2; /* /* Gray 6 */
     --color-bg-gray: #c4c4c4;
     --color-gray: #bdbdbd; /* Gray 4 */
@@ -18,19 +19,27 @@ body {
 
 .App {
     max-width: 600px;
-    margin-top: 30vh; /* 10% viewport height */
+    margin-top: 20vh; /* 20% viewport height */
+}
+
+.title-container {
+    text-align: center;
+}
+
+.title-icon {
+    width: 15em;
 }
 
 h1.title {
-    margin-bottom: 10vh; /* 10% viewport height */
+    margin-top: 0.5em;
+    margin-bottom: 5vh; /* 5% viewport height */
 
     /* ÄR DEN VEGANSK? */
     text-transform: uppercase;
     font-style: normal;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 50px;
     line-height: 102%;
-    text-align: center;
     letter-spacing: 0.01em;
     color: var(--color-accent); /* Senapsgul */
 }
@@ -59,9 +68,9 @@ h1.title {
 #search-input {
     /* Rectangle 6539 */
     width: 100%;
-    padding: 1em 1.5em;
-    font-size: 16px;
-    background: var(--color-bg-gray); /* Gray 6 */
+    padding: 0.5em 1.2em;
+    font-size: 14px;
+    background: var(--color-bg-off-gray);
     border: 0.866667px solid var(--color-gray); /* Gray 4 */
     box-sizing: border-box;
     border-radius: 29px;
@@ -71,10 +80,6 @@ h1.title {
     outline: none;
 }
 
-#search-input::-webkit-search-cancel-button {
-    font-size: 1.5em;
-}
-
 #search-input::placeholder {
     color: #000;
     opacity: 0.8;
@@ -82,12 +87,13 @@ h1.title {
 
 #search-button {
     background: var(--color-accent);
-    padding: 0.5em;
-    min-width: 10em;
+    color: var(--color-bg-dark);
+    padding: 0.2em 2em;
     border: none;
-    margin-top: 5vh; /*5% viewport height*/
-    text-transform: uppercase;
-    font-weight: bold;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-left: 1em;
 }
 
 #search-button:hover,
@@ -107,13 +113,13 @@ h1.title {
     color: var(--color-pure-white);
 }
 
-.info-container.h2 {
-    font-weight: bold;
+.info-container h2 {
     font-size: 24px;
     line-height: 36px;
+    font-weight: 700;
 }
 
-.info-container.p {
+.info-container p {
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
@@ -122,11 +128,41 @@ h1.title {
 .search-results {
     margin-top: 2em;
     width: 100%;
+    /*background: var(--color-bg-off-gray);*/
+    background: var(--color-pure-white);
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
 }
 
 .search-results li {
-    color: var(--color-pure-white);
+    color: #000;
     padding: 1em;
+    cursor: pointer;
+}
+
+.search-results li:hover {
+    background: var(--color-gray);
+}
+
+.search-results .product-image {
+    width: 4em;
+    margin-right: 1em;
+    height: fit-content;
+}
+
+.search-results .vegan-mark {
+    text-align: center;
+}
+
+.search-results .vegan-true {
+    padding-right: 1.25%;
+}
+
+.search-results .vegan-mark img {
+    height: 3.5em;
 }
 
 .sticky-fade {
@@ -149,7 +185,27 @@ h1.title {
         height: inherit;
     }
 
+    .title-icon {
+        width: 12em;
+    }
+
     h1.title {
-        margin-bottom: 20vh;
+        margin-bottom: 8vh;
+    }
+
+    #search-button {
+        padding: 0.2em 1em;
+    }
+
+    .search-results li {
+        padding: 0.75em 1em;
+    }
+
+    .search-results .product-name {
+        font-size: 0.8em;
+    }
+
+    .search-results .vegan-mark img {
+        height: 2.5em;
     }
 }
