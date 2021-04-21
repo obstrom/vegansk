@@ -6,10 +6,16 @@ function Product(props) {
         return splitPath[splitPath.length - 1];
     };
 
+    const productId = getProductIdFromPath(useLocation());
+    const productData = props.productDataAll[productId - 1];
+
     return (
-        <div>
-            <h1>Det här är produkt #{getProductIdFromPath(useLocation())}</h1>
-        </div>
+        <ul className="info-container">
+            <li>{`id: ${productData.id}`}</li>
+            <li>{`name: ${productData.name}`}</li>
+            <li>{`producer: ${productData.producer}`}</li>
+            <li>{`vegan: ${productData.vegan}`}</li>
+        </ul>
     );
 }
 

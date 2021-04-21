@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SearchResults = ({ renderData = [] }) => {
@@ -22,11 +21,15 @@ const SearchResults = ({ renderData = [] }) => {
         <div className="search-results">
             <ul>
                 {renderData.map((product) => (
-                    <Link to={`/products/product-${product.id}`}>
+                    <Link
+                        key={product.id}
+                        to={`/products/product-${product.id}`}
+                    >
                         <li id={`result-${product.id}`} className="d-flex">
                             <img
                                 className="product-image"
                                 src={`images/products/product-${product.id}.jpg`}
+                                alt={`Produkt ${product.producer} - ${product.name}`}
                             />
                             <span className="product-name flex-grow-1">
                                 {`${product.producer} - ${product.name}`}
@@ -35,6 +38,11 @@ const SearchResults = ({ renderData = [] }) => {
                                 className={`vegan-mark vegan-${product.vegan}`}
                             >
                                 <img
+                                    alt={
+                                        product.vegan
+                                            ? "Vegansk produkt"
+                                            : "Ej vegansk produkt"
+                                    }
                                     src={renderVeganThumb(product.vegan)}
                                 ></img>
                             </div>
