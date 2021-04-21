@@ -157,13 +157,13 @@ h1.title {
 .Product{
     background: var(--color-pure-white);
     /*position: absolute;*/
-    width: 375px;
-    height: 812px;
-    left: 2530px;
-    top: 1747px;
+    /* width: 375px; */
+    /* height: 812px; */
+    /* left: 2530px;
+    top: 1747px; */
     padding: unset;
 }
-.top{
+.product-top{
     background: var(--color-bg-dark);
     font-style: normal;
     font-weight: 900;
@@ -175,28 +175,43 @@ h1.title {
     letter-spacing: 00.01em;
     color: var(--color-accent);
 }
-
-/*Rectangle 375x812*/
-.specify-answer{                        /*Vilken font-size? på "Vegansk"*/
-   /* font-weight: 700;
+        
+            /* JA */
+.product-answer{
+    text-transform: uppercase;
     font-style: normal;
-    font-size: 28,05px;*/
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 102%;
+    text-align: center;
+    letter-spacing: 0.01em;
 
+    /* position: absolute; */
+left: 28.28%;
+right: 29.67%;
+top: 24.08%;
+bottom: 28.41%;
+font-style: normal;
+font-weight: 900;
+font-size: 114.467px;
+line-height: 102%;
+/* identical to box height, or 117px */
+text-align: center;
+letter-spacing: 0.01em;
 
-    /* JA VEGANSK
-/*position: absolute;  Om denna kodrad används kastas "Vegansk" ut ur centreringen.*/
+/* Gray 6 */
+color: #F2F2F2;
+}
 
 
 /* ny CSS 20/4 */
 /* VEGANSK */
-
-/* position: absolute; */
+.specify-answer{       
+/* position: absolute; Om denna kodrad används kastas "Vegansk" ut ur centreringen.*/
 left: 27.11%;
 right: 29.47%;
 top: 64.81%;
 bottom: 15.37%;
-
-font-family: Poppins;
 font-style: normal;
 font-weight: bold;
 font-size: 32.229px;
@@ -207,18 +222,16 @@ text-align: center;
 /* Senapsgul */
 color: #F5C300;
 
-
-
 }
 
 .product-name{
-
+    margin-left: 1em;
 /*width: 373.27px;  prova margin, och vh, pt eller em som enhet. För text kan man använda pt, em.
 height: 39.36px;
 left: 67.87px;
 top: 344.76px;
 padding-bottom: 20x;*/
-
+/* 
 margin: 10 em;
 
 font-family: Poppins;
@@ -227,8 +240,49 @@ font-weight: bold;
 font-size: 29.8613px;
 line-height: 45px;
 text-align: center;
+color: #000000; */
+
+/* Nytt info Flora mjölkfri 400g 20/4-21*/
+/*position: absolute;
+left: 0%;*/
+right: 28.52%;
+top: 0%;
+bottom: 84.65%;
+
+/* H1 24pt */
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 33px;
+/* identical to box height */
+
 
 color: #000000;
+
+}
+
+.product-information{
+    /* Produktinformation */
+
+/* position: absolute; 
+left: 0%;
+right: 44.63%;
+top: 20.47%;
+bottom: 68.84%;*/
+
+text-align:initial;
+margin: 10 em;
+
+/* Rubrik 14pt Bold */
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 21px;
+
+color: #000000;
+
 
 }
 
@@ -268,5 +322,25 @@ letter-spacing: 0.01em;
 
 color: #000000;
 text-align: left;
+
+}
+
+.report-flawes{
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.footer{
+    /* Rectangle 6732 */
+
+/* position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%; */
+
+/* Mörkgrön */
+background: #38514B;
+text-align: center;
 
 }
