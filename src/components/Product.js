@@ -1,4 +1,5 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import "./Product.css";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -9,15 +10,9 @@ function Product(props) {
     const productId = getProductIdFromPath(useLocation());
     const productData = props.productDataAll[productId - 1];
 
-    return (
+    const CiccisKod = () => {
         <>
-            {/*<ul className="info-container">
-                <li>{`id: ${productData.id}`}</li>
-                <li>{`name: ${productData.name}`}</li>
-                <li>{`producer: ${productData.producer}`}</li>
-                <li>{`vegan: ${productData.vegan}`}</li>
-    </ul>*/}
-            <div className="product-page">
+            <div>
                 <div className="Product container d-flex flex-column">
                     {/*Produktlandningssida här!*/}
                     <div></div>
@@ -59,7 +54,68 @@ function Product(props) {
                     </footer>
                 </div>
             </div>
-        </>
+        </>;
+    };
+
+    const productTitleAwnser = (bool) => {
+        if (bool) {
+            return (
+                <>
+                    <h1>Ja</h1>
+                    <h2>Vegansk</h2>
+                </>
+            );
+        }
+        return (
+            <>
+                <h1>Nej</h1>
+                <h2>Ej vegansk</h2>
+            </>
+        );
+    };
+
+    // Make body-tag (outside React) white for product page
+    document.body.style.backgroundColor = "white";
+
+    return (
+        <div className={`product-page product-${productData.id}`}>
+            <div className="product-page-content">
+                <div className={`product-top vegan-${productData.vegan}`}>
+                    <Link to="/">
+                        <button className="go-back">
+                            <img src="/images/back-arrow.svg" />
+                        </button>
+                    </Link>
+                    <div className="product-title-container container">
+                        {productTitleAwnser(productData.vegan)}
+                    </div>
+                </div>
+                <div className="product-info">
+                    <div className="container">
+                        <div className="product-image-wrapper text-center">
+                            <img
+                                src={`images/products/product-${productData.id}.jpg`}
+                            />
+                        </div>
+                        <div className="product-title-wrapper">
+                            <h3 className="product-title">
+                                {`${productData.producer} - ${productData.name}`}
+                            </h3>
+                        </div>
+                        <h4>Produktinformation</h4>
+                        <div id="product-info-accordion accordion">
+                            {/* Lägg accordion här! */}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="product-sticky-footer text-center">
+                <div className="container">
+                    <button>Scanna</button>
+                    <button>Sök</button>
+                </div>
+            </div>
+        </div>
     );
 }
 
