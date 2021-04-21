@@ -64,7 +64,21 @@ h1.title {
 /*.scanner-icon {
     text-align: center;
 }*/
+.modalw{
+    background-color: white;
+    margin: 100px;
+    min-width: 250px;
 
+}
+#btn:hover{
+   text-decoration-line: underline;
+}
+#btn{
+    color: blue;
+    cursor: pointer;
+    width: 100px;
+
+}
 #search-input {
     /* Rectangle 6539 */
     width: 100%;
@@ -132,6 +146,10 @@ h1.title {
     background: var(--color-pure-white);
 }
 
+.search-results button {
+    color: black;
+}
+
 .search-results ul {
     list-style-type: none;
     padding: 0;
@@ -185,6 +203,7 @@ h1.title {
         height: inherit;
     }
 
+    }
     .title-icon {
         width: 12em;
     }
@@ -208,4 +227,4 @@ h1.title {
     .search-results .vegan-mark img {
         height: 2.5em;
     }
-}
+
