@@ -25,7 +25,10 @@ const SearchResults = ({ renderData = [] }) => {
                         key={product.id}
                         to={`/products/product-${product.id}`}
                     >
-                        <li id={`result-${product.id}`} className="d-flex">
+                        <li
+                            id={`result-${product.id}`}
+                            className="d-flex search-result-product"
+                        >
                             <img
                                 className="product-image"
                                 src={`images/products/product-${product.id}.jpg`}
