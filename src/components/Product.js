@@ -77,7 +77,11 @@ function Product(props) {
         );
     };
 
-    console.log(productData);
+    const renderVeganThumb = (bool) => {
+        return bool
+            ? "/images/vegan-thumbs-up.svg"
+            : "/images/vegan-thumbs-down.svg";
+    };
 
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
@@ -88,7 +92,10 @@ function Product(props) {
                 <div className={`product-top vegan-${productData.vegan}`}>
                     <Link to="/">
                         <button className="go-back">
-                            <img src="/images/back-arrow.svg" />
+                            <img
+                                src="/images/back-arrow.svg"
+                                alt="Arrow icon"
+                            />
                         </button>
                     </Link>
                     <div className="product-title-container container">
@@ -97,15 +104,29 @@ function Product(props) {
                 </div>
                 <div className="product-info">
                     <div className="product-info-container container">
-                        <div className="product-image-wrapper text-center">
-                            <img
-                                src={`images/products/product-${productData.id}.jpg`}
-                            />
+                        <div className="product-image-section d-flex">
+                            <div className="product-image-container">
+                                <div className="product-image-wrapper d-flex">
+                                    <img
+                                        className="img-fluid"
+                                        src={`/images/products/product-${productData.id}.jpg`}
+                                        alt={`Product image of ${productData.name}`}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div className="product-title-wrapper">
+                        <div className="product-title-wrapper d-flex">
                             <h3 className="product-title">
                                 {`${productData.name}`}
                             </h3>
+                            <img
+                                alt={
+                                    productData.vegan
+                                        ? "Vegansk produkt"
+                                        : "Ej vegansk produkt"
+                                }
+                                src={renderVeganThumb(productData.vegan)}
+                            />
                         </div>
                         <h4 className="product-info-header">
                             Produktinformation
@@ -122,10 +143,13 @@ function Product(props) {
                                             aria-controls="collapseOne"
                                         >
                                             Ingredienser
-                                            <img
-                                                className={`collapse-arrow`}
-                                                src="/images/accordion-arrow.svg"
-                                            />
+                                            <div className="collapse-arrow-wrapper">
+                                                <img
+                                                    className="collapse-arrow"
+                                                    src="/images/accordion-arrow.svg"
+                                                    alt="Arrow icon"
+                                                />
+                                            </div>
                                         </button>
                                     </h5>
                                 </div>
@@ -166,6 +190,13 @@ function Product(props) {
                                             aria-controls="collapseTwo"
                                         >
                                             Om varumärket
+                                            <div className="collapse-arrow-wrapper">
+                                                <img
+                                                    className="collapse-arrow"
+                                                    src="/images/accordion-arrow.svg"
+                                                    alt="Arrow icon"
+                                                />
+                                            </div>
                                         </button>
                                     </h5>
                                 </div>
@@ -206,6 +237,13 @@ function Product(props) {
                                             aria-controls="collapseThree"
                                         >
                                             Allergener
+                                            <div className="collapse-arrow-wrapper">
+                                                <img
+                                                    className="collapse-arrow"
+                                                    src="/images/accordion-arrow.svg"
+                                                    alt="Arrow icon"
+                                                />
+                                            </div>
                                         </button>
                                     </h5>
                                 </div>
