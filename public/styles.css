@@ -3,6 +3,7 @@
 :root {
     --color-bg-dark: #38514b; /* Mörkgrön */
     --color-bg-light: #eee7d5; /* Ljus sandgrå */
+    --color-bg-danger: #ef7878;
     --color-pure-white: #fff;
     --color-bg-off-gray: #e6e7ec;
     /*--color-off-white: #f2f2f2; /* /* Gray 6 */
@@ -41,7 +42,8 @@ h1.title {
     font-size: 50px;
     line-height: 102%;
     letter-spacing: 0.01em;
-    color: var(--color-accent); /* Senapsgul */
+    color: var(--color-accent);
+    /* Senapsgul */
 }
 
 /*.scanner-container {
@@ -64,20 +66,10 @@ h1.title {
 /*.scanner-icon {
     text-align: center;
 }*/
-.modalw{
+.modalw {
     background-color: white;
     margin: 100px;
     min-width: 250px;
-
-}
-#btn:hover{
-   text-decoration-line: underline;
-}
-#btn{
-    color: blue;
-    cursor: pointer;
-    width: 100px;
-
 }
 #search-input {
     /* Rectangle 6539 */
@@ -203,7 +195,6 @@ h1.title {
         height: inherit;
     }
 
-    }
     .title-icon {
         width: 12em;
     }
@@ -220,11 +211,193 @@ h1.title {
         padding: 0.75em 1em;
     }
 
-    .search-results .product-name {
+    .search-result-product .product-name {
         font-size: 0.8em;
     }
 
     .search-results .vegan-mark img {
         height: 2.5em;
     }
+}
 
+.product-page .Product {
+    background: var(--color-pure-white);
+    /*position: absolute;*/
+    /* width: 375px; */
+    /* height: 812px; */
+    /* left: 2530px;
+    top: 1747px; */
+    padding: unset;
+}
+.product-page .product-top {
+    background: var(--color-bg-dark);
+    font-style: normal;
+    font-weight: 900;
+    font-size: 148.025px;
+    line-height: 102%;
+    /*or 151px*/
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 00.01em;
+    color: var(--color-accent);
+}
+
+/* JA */
+.product-page .product-answer {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 102%;
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    /* position: absolute; */
+    left: 28.28%;
+    right: 29.67%;
+    top: 24.08%;
+    bottom: 28.41%;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 114.467px;
+    line-height: 102%;
+    /* identical to box height, or 117px */
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    /* Gray 6 */
+    color: #f2f2f2;
+}
+
+/* ny CSS 20/4 */
+/* VEGANSK */
+.product-page .specify-answer {
+    /* position: absolute; Om denna kodrad används kastas "Vegansk" ut ur centreringen.*/
+    left: 27.11%;
+    right: 29.47%;
+    top: 64.81%;
+    bottom: 15.37%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32.229px;
+    line-height: 48px;
+    /* identical to box height */
+    text-align: center;
+
+    /* Senapsgul */
+    color: #f5c300;
+}
+
+.product-page .product-name {
+    margin-left: 1em;
+    /*width: 373.27px;  prova margin, och vh, pt eller em som enhet. För text kan man använda pt, em.
+height: 39.36px;
+left: 67.87px;
+top: 344.76px;
+padding-bottom: 20x;*/
+    /* 
+margin: 10 em;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 29.8613px;
+line-height: 45px;
+text-align: center;
+color: #000000; */
+
+    /* Nytt info Flora mjölkfri 400g 20/4-21*/
+    /*position: absolute;
+left: 0%;*/
+    right: 28.52%;
+    top: 0%;
+    bottom: 84.65%;
+
+    /* H1 24pt */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.product-page .product-information {
+    /* Produktinformation */
+
+    /* position: absolute; 
+left: 0%;
+right: 44.63%;
+top: 20.47%;
+bottom: 68.84%;*/
+
+    text-align: initial;
+    margin: 10 em;
+
+    /* Rubrik 14pt Bold */
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #000000;
+}
+
+.product-page .ingredients {
+    /*position: absolute;*/
+    width: 145px;
+    height: 33px;
+    left: 100em;
+    top: 382px;
+
+    /* H1 24pt */
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    /* identical to box height */
+
+    color: #000000;
+}
+.product-page .ingredient-list {
+    /*position: absolute;*/
+    list-style: none;
+    width: 238px;
+    height: 199px;
+    left: 56px;
+    top: 434px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+
+    color: #000000;
+    text-align: left;
+}
+
+.product-page .report-flawes {
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.product-page .footer {
+    /* Rectangle 6732 */
+
+    /* position: absolute;
+left: 0%;
+right: 0%;
+top: 0%;
+bottom: 0%; */
+
+    /* Mörkgrön */
+    background: #38514b;
+    text-align: center;
+}

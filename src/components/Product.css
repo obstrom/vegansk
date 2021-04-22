@@ -1,0 +1,244 @@
+.product-page .go-back {
+    border: none;
+    background: none;
+    position: absolute;
+    display: flex;
+    left: 52px;
+    top: 44px;
+}
+
+.product-page .go-back img {
+    width: 21px;
+}
+
+.product-page .product-title-container {
+    padding: 0.28em 0;
+}
+
+.product-page .product-top.vegan-true {
+    background: var(--color-bg-dark);
+}
+
+.product-page .product-top.vegan-true h1 {
+    color: #f2f2f2;
+}
+
+.product-page .product-top.vegan-true h2 {
+    color: var(--color-accent);
+}
+
+.product-page .product-top h1 {
+    font-size: 0.78em;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 102%;
+    letter-spacing: 0.01em;
+    margin-bottom: -0.1em;
+}
+
+.product-page .product-top h2 {
+    font-size: 0.215em;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.product-page .product-top.vegan-false {
+    background: var(--color-bg-danger);
+    color: #272727;
+}
+
+.product-page .product-info {
+    background: #fff;
+    height: 100px;
+}
+
+.product-page .product-info-container {
+    max-width: 400px;
+}
+
+.product-page .special-ingredient p {
+    margin: 0;
+}
+
+.product-page .question-icon-wrapper {
+    position: absolute;
+    left: 2px;
+}
+
+.product-page .product-image-section {
+    justify-content: center;
+    padding: 1em 0 3em 0;
+}
+
+.product-page .product-image-container {
+    width: 85%;
+    padding-bottom: 85%;
+    position: relative;
+}
+
+.product-page .product-image-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.product-page .product-image-wrapper img {
+    height: fit-content;
+    align-self: center;
+}
+
+.product-page .product-title-wrapper {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.product-page .product-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1.5em;
+    color: #000;
+}
+
+.product-page .product-title-wrapper img {
+    width: 62px;
+}
+
+.product-page .product-info-header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.87em;
+    line-height: 1.5em;
+    color: #000;
+}
+
+.product-page .product-info-accordion {
+    border-bottom: solid 1px #000;
+}
+
+.product-page .product-info-accordion .card {
+    border-radius: 0;
+    border: none;
+    outline: none;
+}
+
+/* Trying to remove/move focus outline - not working */
+.product-page .product-info-accordion .card:focus,
+.product-page .product-info-accordion .card:focus-within,
+.product-page .product-info-accordion .card-header:focus,
+.product-page .product-info-accordion .card-header:focus-within,
+.product-page .product-info-accordion .mb-0:focus,
+.product-page .product-info-accordion .mb-0:focus-within,
+.product-page .product-info-accordion .card-header button:focus,
+.product-page .product-info-accordion .card-header button:focus-within {
+    outline: none;
+}
+
+.product-page .product-info-accordion .card-header {
+    padding: 0;
+    border-bottom: none;
+}
+
+.product-page .product-info-accordion .card-header .btn {
+    padding: 1em 0 1em 0.2em;
+    color: #000;
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.6em;
+    line-height: 1.5em;
+    background-color: #fff;
+    border-radius: 0;
+    border-top: solid 1px #000;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.product-page .product-info-accordion .card-header .btn:hover,
+.product-page .product-info-accordion .card-header .btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.product-page .product-info-accordion .card-header .collapse-arrow-wrapper {
+    display: inline;
+    position: absolute;
+    right: 1.5em;
+    transform: rotate(180deg);
+}
+
+.product-page
+    .product-info-accordion
+    .card-header
+    .collapsed
+    .collapse-arrow-wrapper {
+    transform: rotate(0deg);
+}
+
+.product-page .product-info-accordion .card-body {
+    padding: 1em 2em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75em;
+    line-height: 1.5em;
+}
+
+.product-page .product-info-accordion .product-ingredients {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-page .product-report-wrapper {
+    padding-top: 2em;
+    padding-bottom: 4em;
+}
+
+.product-page .product-report-wrapper a {
+    font-weight: 400;
+    style: normal;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    text-decoration: underline;
+}
+
+/*.product-page .product-sticky-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-bg-dark);
+    padding: 1em;
+}
+
+.product-page .product-sticky-footer button {
+    margin: 0 2em;
+}*/
+
+@media screen and (max-width: 500px) {
+    .product-page .go-back {
+        left: 25px;
+        top: 25px;
+    }
+
+    .product-page .go-back img {
+        width: 11.3px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .product-page .product-info {
+        padding: 0 1.5em;
+    }
+
+    .product-page .product-title-wrapper img {
+        width: 38px;
+    }
+}

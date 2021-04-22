@@ -1,12 +1,15 @@
 import StartSearch from "./StartSearch";
 
 function Home(props) {
+    // Make body-tag (outside React) green for home page
+    document.body.style.backgroundColor = "#38514b";
+
     return (
         <>
             <div className="App container d-flex flex-column">
                 <div className="title-container">
                     <img
-                        src="images/ica.svg"
+                        src="images/ica.png"
                         className="title-icon"
                         alt="ICA Logo"
                     ></img>
