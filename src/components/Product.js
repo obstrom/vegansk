@@ -1,6 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
+import ModalWindow from "./ModalWindow";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -146,6 +147,10 @@ function Product(props) {
                                             <li>vatten</li>
                                             <li>salt</li>
                                             <li>vitamin A och D</li>
+                                            <ModalWindow
+                                                specialIngredientsData={specialIngredientsData}
+                                                specialProductId={productData.id}
+                                                />
                                         </ul>
                                     </div>
                                 </div>

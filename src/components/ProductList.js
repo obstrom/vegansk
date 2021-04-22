@@ -45,6 +45,7 @@ export default createServer({
                     "Lätta är en klassiker på svenska frukostbord sedan 1984.\n" +
                     "Har en lätt och fräsch smak och är gjord med rapsolja och kärnmjölk för den goda smakens skull. " +
                     "För dig som vill behålla en sund och hälsosam livsstil, men fortsätta njuta av en naturlig god smak på mackan.",
+                allergens: "Mjölk",
                 vegan: false,
             },
             {
@@ -56,7 +57,7 @@ export default createServer({
                 "modifierad stärkelse", "salt 1%", {specialId: 2}, {specialId: 1}, " konserveringsmedel (kaliumsorbat)", "syra (citronsyra)", "naturlig arom", "A- och D2-vitamin."],
                 about: "Använd Becel Lätt Omega 3 som ett alternativ till smör på mackan. På grund av den låga fetthalten passar produkten inte att använda till stekning och bakning." +
                     " Däremot passar den utmärkt att använda exempelvis i bakad potatis, i pastarätter eller på varma grönsaker.",
-
+                allergens: "",
                 vegan: false,
             },
             {
