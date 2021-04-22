@@ -9,7 +9,7 @@ function Home(props) {
             <div className="App container d-flex flex-column">
                 <div className="title-container">
                     <img
-                        src="images/ica.svg"
+                        src="images/ica.png"
                         className="title-icon"
                         alt="ICA Logo"
                     ></img>

@@ -51,7 +51,96 @@
     height: 100px;
 }
 
-.product-page .product-sticky-footer {
+.product-page .product-info-container {
+    max-width: 600px;
+    padding: 0 1.5em;
+}
+
+.product-page .product-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 1.5em;
+    color: #000;
+}
+
+.product-page .product-info-header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.87em;
+    line-height: 1.5em;
+    color: #000;
+}
+
+.product-page .product-info-accordion {
+    border-bottom: solid 1px #000;
+}
+
+.product-page .product-info-accordion .card {
+    border-radius: 0;
+    border: none;
+}
+
+.product-page .product-info-accordion .card-header {
+    padding: 0;
+    border-bottom: none;
+}
+
+.product-page .product-info-accordion .card-header .btn {
+    padding: 1em 0 1em 0.2em;
+    color: #000;
+    width: 100%;
+    text-align: left;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.6em;
+    line-height: 1.5em;
+    background-color: #fff;
+    border-radius: 0;
+    border-top: solid 1px #000;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.product-page .product-info-accordion .card-header .collapse-arrow {
+    /* Postionera pilen */
+}
+
+.product-page .product-info-accordion .card-header .btn:hover,
+.product-page .product-info-accordion .card-header .btn:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.product-page .product-info-accordion .card-body {
+    padding: 1em 2em;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75em;
+    line-height: 1.5em;
+}
+
+.product-page .product-info-accordion .product-ingredients {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-page .product-report-wrapper {
+    padding-top: 2em;
+    padding-bottom: 4em;
+}
+
+.product-page .product-report-wrapper a {
+    font-weight: 400;
+    style: normal;
+    font-size: 0.75em;
+    line-height: 1.5em;
+    text-decoration: underline;
+}
+
+/*.product-page .product-sticky-footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -62,4 +151,4 @@
 
 .product-page .product-sticky-footer button {
     margin: 0 2em;
-}
+}*/
