@@ -6,8 +6,9 @@ import createServer from "./components/ProductList";
 
 function App() {
     const [allProducts, setAllProducts] = useState([]);
+    const [specialIngredients, setSpecialIngredients] = useState([]);
 
-    const fetchData = async () => {
+    const fetchProductData = async () => {
         return await fetch("./api/products")
             .then((res) => res.json())
             .then((data) => {
@@ -15,8 +16,17 @@ function App() {
             });
     };
 
+    const fetchIngredientsData = async () => {
+        return await fetch("./api/special-ingredients")
+            .then((res) => res.json())
+            .then((data) => {
+                setSpecialIngredients(data);
+            });
+    };
+
     useEffect(() => {
-        fetchData();
+        fetchProductData();
+        fetchIngredientsData();
     }, []);
 
     return (
@@ -33,7 +43,11 @@ function App() {
                     <Route
                         path="/products/"
                         component={(props) => (
-                            <Product {...props} productDataAll={allProducts} />
+                            <Product
+                                {...props}
+                                productDataAll={allProducts}
+                                specialIngredients={specialIngredients}
+                            />
                         )}
                     />
                 </Switch>

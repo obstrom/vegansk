@@ -2,12 +2,20 @@ import { createServer } from "miragejs";
 
 export default createServer({
     routes() {
-        this.get("/api/products", () => [
+        this.namespace = "api";
+
+        this.get("/products", () => [
             {
                 id: 1,
                 name: "Bregott normalsaltat",
                 producer: "Arla",
                 searchTags: ["bregott", "normalsaltat", "smör", "arla"],
+                ingredients: [
+                    "smör",
+                    { special: 1 },
+                    "vatten",
+                    "förtjockningsmedel",
+                ],
                 vegan: false,
             },
             {
@@ -44,6 +52,14 @@ export default createServer({
                 producer: "Garant",
                 searchTags: ["ekologiskt", "vegogott", "smör", "garant"],
                 vegan: true,
+            },
+        ]);
+
+        this.get("/special-ingredients", () => [
+            {
+                id: 1,
+                name: "E27",
+                text: "huoiapdwdawdojih nkdla wd",
             },
         ]);
     },
