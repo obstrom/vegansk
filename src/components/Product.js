@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
+import createServer from "./ProductList";
 import "./Product.css";
 
 function Product(props) {
@@ -9,6 +11,7 @@ function Product(props) {
 
     const productId = getProductIdFromPath(useLocation());
     const productData = props.productDataAll[productId - 1];
+    const specialIngredientsData = props.specialIngredients;
 
     const CiccisKod = () => {
         <>
@@ -74,6 +77,8 @@ function Product(props) {
         );
     };
 
+    console.log(productData);
+
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
 
@@ -109,12 +114,12 @@ function Product(props) {
                     </div>
                 </div>
             </div>
-            <div className="product-sticky-footer text-center">
+            {/*<div className="product-sticky-footer text-center">
                 <div className="container">
                     <button>Scanna</button>
                     <button>Sök</button>
                 </div>
-            </div>
+    </div>*/}
         </div>
     );
 }
