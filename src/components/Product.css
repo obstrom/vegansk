@@ -59,6 +59,15 @@
     max-width: 400px;
 }
 
+.product-page .special-ingredient p {
+    margin: 0;
+}
+
+.product-page .question-icon-wrapper {
+    position: absolute;
+    left: 2px;
+}
+
 .product-page .product-image-section {
     justify-content: center;
     padding: 1em 0 3em 0;

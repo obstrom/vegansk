@@ -71,14 +71,6 @@ h1.title {
     margin: 100px;
     min-width: 250px;
 }
-#btn:hover {
-    text-decoration-line: underline;
-}
-#btn {
-    color: blue;
-    cursor: pointer;
-    width: 100px;
-}
 #search-input {
     /* Rectangle 6539 */
     width: 100%;

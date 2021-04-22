@@ -83,6 +83,34 @@ function Product(props) {
             : "/images/vegan-thumbs-down.svg";
     };
 
+    const renderProductIngredients = () => {
+        let list = [];
+        productData.ingredients.forEach((ingred) => {
+            if (typeof ingred === "string") {
+                list.push(
+                    <li key={ingred} className="ingredient normal-ingredient">
+                        {ingred}
+                    </li>
+                );
+            } else if (typeof ingred === "object") {
+                console.log(ingred);
+                list.push(
+                    <li
+                        key={`special-${ingred.specialId}`}
+                        className="ingredient special-ingredient"
+                    >
+                        <ModalWindow
+                            specialIngredientsData={specialIngredientsData}
+                            specialProductId={ingred.specialId}
+                        />
+                    </li>
+                );
+            }
+        });
+
+        return <ul className="product-ingredients">{list}</ul>;
+    };
+
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
 
@@ -161,21 +189,7 @@ function Product(props) {
                                     data-parent="#accordion"
                                 >
                                     <div className="card-body">
-                                        {/* Lägg in dynamisk data här! */}
-                                        <ul className="product-ingredients">
-                                            <li>
-                                                Smör (pastöriserad GRÄDDE,
-                                                mjölksyrakultur)
-                                            </li>
-                                            <li>rapsolja</li>
-                                            <li>vatten</li>
-                                            <li>salt</li>
-                                            <li>vitamin A och D</li>
-                                            <ModalWindow
-                                                specialIngredientsData={specialIngredientsData}
-                                                specialProductId={productData.id}
-                                                />
-                                        </ul>
+                                        {renderProductIngredients()}
                                     </div>
                                 </div>
                             </div>
