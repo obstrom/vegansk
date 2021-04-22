@@ -160,7 +160,10 @@ h1.title {
 .search-results .product-image {
     width: 4em;
     margin-right: 1em;
-    height: fit-content;
+    height: -webkit-fill-available; /* Chrome fix */
+    height: -moz-fit-content; /* Firefox fix */
+    height: intrinsic; /* Safari fix */
+    align-items: flex-start;
 }
 
 .search-results .vegan-mark {
