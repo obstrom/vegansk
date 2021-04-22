@@ -1,0 +1,65 @@
+.product-page .go-back {
+    border: none;
+    background: none;
+    position: absolute;
+    display: flex;
+    left: 0.25em;
+    top: 0.25em;
+}
+
+.product-page .product-title-container {
+    padding: 0.2em 0;
+}
+
+.product-page .product-top.vegan-true {
+    background: var(--color-bg-dark);
+}
+
+.product-page .product-top.vegan-true h1 {
+    color: #f2f2f2;
+}
+
+.product-page .product-top.vegan-true h2 {
+    color: var(--color-accent);
+}
+
+.product-page .product-top h1 {
+    font-size: 1em;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 102%;
+    letter-spacing: 0.01em;
+    margin-bottom: -0.1em;
+}
+
+.product-page .product-top h2 {
+    font-size: 0.275em;
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.product-page .product-top.vegan-false {
+    background: var(--color-bg-danger);
+    color: #272727;
+}
+
+.product-page .product-info {
+    background: #fff;
+    height: 100px;
+}
+
+.product-page .product-sticky-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--color-bg-dark);
+    padding: 1em;
+}
+
+.product-page .product-sticky-footer button {
+    margin: 0 2em;
+}

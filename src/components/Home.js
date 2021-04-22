@@ -1,6 +1,9 @@
 import StartSearch from "./StartSearch";
 
 function Home(props) {
+    // Make body-tag (outside React) green for home page
+    document.body.style.backgroundColor = "#38514b";
+
     return (
         <>
             <div className="App container d-flex flex-column">
