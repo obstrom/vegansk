@@ -3,12 +3,16 @@
     background: none;
     position: absolute;
     display: flex;
-    left: 0.25em;
-    top: 0.25em;
+    left: 52px;
+    top: 44px;
+}
+
+.product-page .go-back img {
+    width: 21px;
 }
 
 .product-page .product-title-container {
-    padding: 0.2em 0;
+    padding: 0.28em 0;
 }
 
 .product-page .product-top.vegan-true {
@@ -24,7 +28,7 @@
 }
 
 .product-page .product-top h1 {
-    font-size: 1em;
+    font-size: 0.78em;
     font-style: normal;
     text-transform: uppercase;
     font-weight: 900;
@@ -34,7 +38,7 @@
 }
 
 .product-page .product-top h2 {
-    font-size: 0.275em;
+    font-size: 0.215em;
     font-style: normal;
     text-transform: uppercase;
     font-weight: bold;
@@ -52,16 +56,48 @@
 }
 
 .product-page .product-info-container {
-    max-width: 600px;
-    padding: 0 1.5em;
+    max-width: 400px;
+}
+
+.product-page .product-image-section {
+    justify-content: center;
+    padding: 1em 0 3em 0;
+}
+
+.product-page .product-image-container {
+    width: 85%;
+    padding-bottom: 85%;
+    position: relative;
+}
+
+.product-page .product-image-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.product-page .product-image-wrapper img {
+    height: fit-content;
+    align-self: center;
+}
+
+.product-page .product-title-wrapper {
+    display: inline-flex;
+    gap: 10px;
 }
 
 .product-page .product-title {
     font-style: normal;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 2em;
     line-height: 1.5em;
     color: #000;
+}
+
+.product-page .product-title-wrapper img {
+    width: 62px;
 }
 
 .product-page .product-info-header {
@@ -79,6 +115,19 @@
 .product-page .product-info-accordion .card {
     border-radius: 0;
     border: none;
+    outline: none;
+}
+
+/* Trying to remove/move focus outline - not working */
+.product-page .product-info-accordion .card:focus,
+.product-page .product-info-accordion .card:focus-within,
+.product-page .product-info-accordion .card-header:focus,
+.product-page .product-info-accordion .card-header:focus-within,
+.product-page .product-info-accordion .mb-0:focus,
+.product-page .product-info-accordion .mb-0:focus-within,
+.product-page .product-info-accordion .card-header button:focus,
+.product-page .product-info-accordion .card-header button:focus-within {
+    outline: none;
 }
 
 .product-page .product-info-accordion .card-header {
@@ -103,14 +152,25 @@
     border-right: none;
 }
 
-.product-page .product-info-accordion .card-header .collapse-arrow {
-    /* Postionera pilen */
-}
-
 .product-page .product-info-accordion .card-header .btn:hover,
 .product-page .product-info-accordion .card-header .btn:focus {
     color: #000;
     text-decoration: none;
+}
+
+.product-page .product-info-accordion .card-header .collapse-arrow-wrapper {
+    display: inline;
+    position: absolute;
+    right: 1.5em;
+    transform: rotate(180deg);
+}
+
+.product-page
+    .product-info-accordion
+    .card-header
+    .collapsed
+    .collapse-arrow-wrapper {
+    transform: rotate(0deg);
 }
 
 .product-page .product-info-accordion .card-body {
@@ -152,3 +212,24 @@
 .product-page .product-sticky-footer button {
     margin: 0 2em;
 }*/
+
+@media screen and (max-width: 500px) {
+    .product-page .go-back {
+        left: 25px;
+        top: 25px;
+    }
+
+    .product-page .go-back img {
+        width: 11.3px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .product-page .product-info {
+        padding: 0 1.5em;
+    }
+
+    .product-page .product-title-wrapper img {
+        width: 38px;
+    }
+}
