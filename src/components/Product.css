@@ -90,6 +90,7 @@
 .product-page .product-image-wrapper img {
     height: auto;
     align-self: center;
+    margin-left: auto;
 }
 
 .product-page .product-title-wrapper {
@@ -105,8 +106,12 @@
     color: #000;
 }
 
-.product-page .product-title-wrapper img {
+.product-page .product-title-wrapper .vegan-thumb.vegan-true {
     width: 62px;
+}
+
+.product-page .product-title-wrapper .vegan-thumb.vegan-false {
+    width: 77px;
 }
 
 .product-page .product-info-header {
@@ -238,7 +243,11 @@
         padding: 0 1.5em;
     }
 
-    .product-page .product-title-wrapper img {
+    .product-page .product-title-wrapper .vegan-thumb.vegan-true {
         width: 38px;
+    }
+
+    .product-page .product-title-wrapper .vegan-thumb.vegan-false {
+        width: 47px;
     }
 }

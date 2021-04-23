@@ -78,9 +78,23 @@ function Product(props) {
     };
 
     const renderVeganThumb = (bool) => {
-        return bool
-            ? "/images/vegan-thumbs-up.svg"
-            : "/images/vegan-thumbs-down.svg";
+        if (bool) {
+            return (
+                <img
+                    alt="Vegansk produkt ikon"
+                    className="vegan-thumb vegan-true"
+                    src="/images/vegan-thumbs-up.svg"
+                />
+            );
+        } else {
+            return (
+                <img
+                    alt="Ej-vegansk produkt ikon"
+                    className="vegan-thumb vegan-false"
+                    src="/images/vegan-thumbs-down.svg"
+                />
+            );
+        }
     };
 
     const renderProductIngredients = () => {
@@ -147,14 +161,7 @@ function Product(props) {
                             <h3 className="product-title">
                                 {`${productData.name}`}
                             </h3>
-                            <img
-                                alt={
-                                    productData.vegan
-                                        ? "Vegansk produkt"
-                                        : "Ej vegansk produkt"
-                                }
-                                src={renderVeganThumb(productData.vegan)}
-                            />
+                            {renderVeganThumb(productData.vegan)}
                         </div>
                         <h4 className="product-info-header">
                             Produktinformation
