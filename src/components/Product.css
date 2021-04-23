@@ -96,6 +96,7 @@
 .product-page .product-title-wrapper {
     display: inline-flex;
     gap: 10px;
+    margin-left: auto;
 }
 
 .product-page .product-title {
@@ -195,7 +196,7 @@
     line-height: 1.5em;
 }
 
-.product-page .product-info-accordion .product-ingredients {
+.product-page .product-info-accordion .card-body .product-ingredients {
     list-style: none;
     padding: 0;
     margin: 0;
