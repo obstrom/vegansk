@@ -125,6 +125,47 @@ function Product(props) {
         return <ul className="product-ingredients">{list}</ul>;
     };
 
+    const renderProductAllergens = (numOfAllergens) => {
+        if (numOfAllergens) {
+            return (
+                <div className="card">
+                    <div className="card-header" id="headingThree">
+                        <h5 className="mb-0">
+                            <button
+                                className="btn btn-link collapsed"
+                                data-toggle="collapse"
+                                data-target="#collapseThree"
+                                aria-expanded="false"
+                                aria-controls="collapseThree"
+                            >
+                                Allergener
+                                <div className="collapse-arrow-wrapper">
+                                    <img
+                                        className="collapse-arrow"
+                                        src="/images/accordion-arrow.svg"
+                                        alt="Arrow icon"
+                                    />
+                                </div>
+                            </button>
+                        </h5>
+                    </div>
+                    <div
+                        id="collapseThree"
+                        className="collapse"
+                        aria-labelledby="headingThree"
+                        data-parent="#accordion"
+                    >
+                        <div className="card-body product-allergens">
+                            <p>{productData.allergens}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        } else {
+            return null;
+        }
+    };
+
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
 
@@ -195,7 +236,7 @@ function Product(props) {
                                     aria-labelledby="headingOne"
                                     data-parent="#accordion"
                                 >
-                                    <div className="card-body">
+                                    <div className="card-body product-ingredients">
                                         {renderProductIngredients()}
                                     </div>
                                 </div>
@@ -227,73 +268,14 @@ function Product(props) {
                                     aria-labelledby="headingTwo"
                                     data-parent="#accordion"
                                 >
-                                    <div className="card-body">
-                                        Anim pariatur cliche reprehenderit, enim
-                                        eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia
-                                        aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt
-                                        laborum eiusmod. Brunch 3 wolf moon
-                                        tempor, sunt aliqua put a bird on it
-                                        squid single-origin coffee nulla
-                                        assumenda shoreditch et. Nihil anim
-                                        keffiyeh helvetica, craft beer labore
-                                        wes anderson cred nesciunt sapiente ea
-                                        proident. Ad vegan excepteur butcher
-                                        vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth
-                                        nesciunt you probably haven't heard of
-                                        them accusamus labore sustainable VHS.
+                                    <div className="card-body product-about">
+                                        <p>{productData.about}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="card">
-                                <div className="card-header" id="headingThree">
-                                    <h5 className="mb-0">
-                                        <button
-                                            className="btn btn-link collapsed"
-                                            data-toggle="collapse"
-                                            data-target="#collapseThree"
-                                            aria-expanded="false"
-                                            aria-controls="collapseThree"
-                                        >
-                                            Allergener
-                                            <div className="collapse-arrow-wrapper">
-                                                <img
-                                                    className="collapse-arrow"
-                                                    src="/images/accordion-arrow.svg"
-                                                    alt="Arrow icon"
-                                                />
-                                            </div>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div
-                                    id="collapseThree"
-                                    className="collapse"
-                                    aria-labelledby="headingThree"
-                                    data-parent="#accordion"
-                                >
-                                    <div className="card-body">
-                                        Anim pariatur cliche reprehenderit, enim
-                                        eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia
-                                        aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt
-                                        laborum eiusmod. Brunch 3 wolf moon
-                                        tempor, sunt aliqua put a bird on it
-                                        squid single-origin coffee nulla
-                                        assumenda shoreditch et. Nihil anim
-                                        keffiyeh helvetica, craft beer labore
-                                        wes anderson cred nesciunt sapiente ea
-                                        proident. Ad vegan excepteur butcher
-                                        vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth
-                                        nesciunt you probably haven't heard of
-                                        them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
+                            {renderProductAllergens(
+                                productData.allergens.length
+                            )}
                         </div>
                         <div className="product-report-wrapper text-center">
                             <a href="#">Rapportera felaktighet</a>
