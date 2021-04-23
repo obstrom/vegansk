@@ -1,37 +1,57 @@
 import { useState, useEffect } from "react";
-import SearchResults from "./components/SearchResults";
-import StartInfo from "./components/StartInfo";
-// import ScannerBox from "./components/ScannerBox";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import Product from "./components/Product";
+import createServer from "./components/ProductList";
 
 function App() {
-    const [searchInput, setSearchInput] = useState("");
-    const [showSearch, setShowSearch] = useState(false);
+    const [allProducts, setAllProducts] = useState([]);
+    const [specialIngredients, setSpecialIngredients] = useState([]);
+
+    const fetchProductData = async () => {
+        return await fetch("./api/products")
+            .then((res) => res.json())
+            .then((data) => {
+                setAllProducts(data);
+            });
+    };
+
+    const fetchIngredientsData = async () => {
+        return await fetch("./api/special-ingredients")
+            .then((res) => res.json())
+            .then((data) => {
+                setSpecialIngredients(data);
+            });
+    };
 
     useEffect(() => {
-        if (searchInput) {
-            setShowSearch(true);
-        } else {
-            setShowSearch(false);
-        }
-    });
+        fetchProductData();
+        fetchIngredientsData();
+    }, []);
 
     return (
         <>
-        <div className="App container d-flex flex-column">
-            <h1 className="title">Är den vegansk?</h1>
-            <div className="input-container text-center">
-                <input
-                    id="search-input"
-                    placeholder="Sök produkt ..."
-                    type="search"
-                    onChange={(e) => setSearchInput(e.target.value)}
-                />
-                <button id="search-button">Sök</button>
-            </div>
-            {!showSearch && <StartInfo />}
-            {showSearch && <SearchResults />}
-        </div>
-        {showSearch && <div class="sticky-fade"></div>}
+            <Router>
+                <Switch>
+                    <Route
+                        path="/"
+                        exact
+                        component={(props) => (
+                            <Home {...props} allProducts={allProducts} />
+                        )}
+                    />
+                    <Route
+                        path="/products/"
+                        component={(props) => (
+                            <Product
+                                {...props}
+                                productDataAll={allProducts}
+                                specialIngredients={specialIngredients}
+                            />
+                        )}
+                    />
+                </Switch>
+            </Router>
         </>
     );
 }

@@ -1,9 +1,4 @@
-function ScannerBox() {
-    return (
-        <div className="scanner-container">
-            <div className="scanner-icon-wrapper text-center">
-                <i className="scanner-icon">
-                    <svg
+<svg
                         width="82"
                         height="45"
                         viewBox="0 0 82 45"
@@ -59,11 +54,3 @@ function ScannerBox() {
                             fill="#38514B"
                         />
                     </svg>
-                </i>
-            </div>
-            <p className="scanner-text">Scanna streckkod</p>
-        </div>
-    );
-}
-
-export default ScannerBox;
