@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import StartInfo from "./StartInfo";
 import SearchResults from "./SearchResults";
+import createServer from './ProductList';
 
 function StartSearch(props) {
     const productList = props.allProductsList;
@@ -9,14 +10,13 @@ function StartSearch(props) {
 
     const searchInputElement = useRef(null);
 
-    /*const fetchData = async () => {
-        return await fetch("./api/products")
+    const fetchRatingData = async () => {
+        return await fetch("./api/ratings")
             .then((res) => res.json())
             .then((data) => {
-                setProductList(data);
-                setFilteredList(data);
+                console.log("ratings: ", data);
             });
-    };*/
+    };
 
     const updateFilteredList = async (query) => {
         const filtered = productList.filter((product) => {
@@ -40,6 +40,19 @@ function StartSearch(props) {
         const inputText = searchInputElement.current.value;
 
         if (inputText) {
+
+            //Testkod för post ratings//
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: 'React POST Request Example' })
+            };
+            fetch('/api/ratings', requestOptions)
+                .then(response => response.json());
+
+            fetchRatingData();    
+                
+
             setShowSearchResults(true);
             updateFilteredList(inputText);
         } else {
