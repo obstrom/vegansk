@@ -95,6 +95,7 @@
 
 .product-page .product-title-wrapper {
     display: inline-flex;
+    justify-content: space-between;
     gap: 10px;
     margin-left: auto;
 }
