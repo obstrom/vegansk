@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { propTypes } from 'react-bootstrap/esm/Image';
 import Ratings from 'react-ratings-declarative'; 
 
-export default function StarRating(props){
+export default function StarRatingModal(props){
 
     const [ratingValue, setRatingValue] = useState(0);
 

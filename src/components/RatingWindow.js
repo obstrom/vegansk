@@ -1,6 +1,6 @@
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
-import StarRating from "./StarRating";
+import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
 import createServer from "./ProductList";
 
@@ -24,7 +24,7 @@ export default function RatingWindow(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="rating-window-button" variant="primary" onClick={handleShow}>
         Tyck till om produkten
       </Button>
 
@@ -41,7 +41,7 @@ export default function RatingWindow(props) {
               >
                 <strong>Betygsätt produkten</strong> (obligatoriskt)
               </label>
-              <StarRating id={props.productId} />
+              <StarRatingModal id={props.productId} />
             </div>
             <div className="review-container">
               <label htmlFor="product-review" className="review-label">
@@ -75,11 +75,12 @@ export default function RatingWindow(props) {
                 Tack!
               </p>
             </div>
-            <div>
-              <Button variant="primary" onClick={handleFormSubmit}>
+            <div className="button-container">
+              <Button id="send-button" variant="primary" onClick={handleFormSubmit}>
                 Skicka betyg
               </Button>
-              <Button variant="secondary" onClick={handleClose}>
+
+              <Button id="abort-button" variant="secondary" onClick={handleClose}>
                 Avbryt
               </Button>
             </div>

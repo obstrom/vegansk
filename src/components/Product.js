@@ -3,6 +3,8 @@ import createServer from "./ProductList";
 import "./Product.css";
 import ModalWindow from "./ModalWindow";
 import RatingWindow from "./RatingWindow";
+import StarRatingProductPage from "./StarRatingProductPage";
+import WrittenReview from "./WrittenReview";
 
 function Product(props) {
   const getProductIdFromPath = (location) => {
@@ -222,11 +224,19 @@ function Product(props) {
               </div>
               {renderProductAllergens(productData.allergens.length)}
             </div>
+
+            <div className="product-report-wrapper">
+              <a href="#">Rapportera felaktighet</a>
+            </div>
+            <StarRatingProductPage value={3.9}/>
             <div className="rating-container text-center">
               <RatingWindow productId={productId} />
             </div>
-            <div className="product-report-wrapper text-center">
-              <a href="#">Rapportera felaktighet</a>
+            <div className="written-reviews-container">
+              <div className="title-reviews">
+                <h5>Kundrecensioner</h5>
+              </div>
+              <WrittenReview/>
             </div>
           </div>
         </div>
