@@ -156,7 +156,7 @@ function Product(props) {
                         </div>
                         <div className="product-title-wrapper d-flex">
                             <h3 className="product-title">{`${productData.name}`}</h3>
-                            {renderVeganThumb(productData.vegan)}
+                            {/*renderVeganThumb(productData.vegan)*/}
                         </div>
                         <h4 className="product-info-header">
                             Produktinformation
