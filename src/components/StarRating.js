@@ -16,12 +16,12 @@ export default function StarRating(props){
 
     return(
         <div className="star-rating" id={`product-id-${props.id}`}>
-        <Ratings rating={ratingValue} changeRating={setRatingValue}>
-        <Ratings.Widget widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
-        <Ratings.Widget widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
-        <Ratings.Widget widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
-        <Ratings.Widget widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
-        <Ratings.Widget widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>    
+        <Ratings rating={ratingValue} widgetSpacing={"13px"} changeRating={setRatingValue}>
+        <Ratings.Widget widgetDimension={"29px"} widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
+        <Ratings.Widget widgetDimension={"29px"} widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
+        <Ratings.Widget widgetDimension={"29px"} widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
+        <Ratings.Widget widgetDimension={"29px"} widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
+        <Ratings.Widget widgetDimension={"29px"} widgetRatedColor={ratedColor} widgetHoverColor={hoverColor}/>
         </Ratings>
         <span className="rating-number">
             {`${ratingValue}/5`}

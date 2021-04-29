@@ -48,7 +48,7 @@ export default function (props) {
                                 class="btn btn-danger"
                                 data-dismiss="modal"
                             >
-                                Close
+                                Stäng
                             </button>
                         </div>
                     </div>
