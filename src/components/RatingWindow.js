@@ -1,5 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
 import createServer from "./ProductList";
@@ -8,23 +8,57 @@ export default function RatingWindow(props) {
   const [show, setShow] = useState(false);
   const [reviewCount, setReviewCount] = useState(0);
 
+  const [formRatedStars, setFormRatedStars] = useState(0);
+  const [formReviewText, setFormReviewText] = useState("");
+  const [formName, setFormName] = useState("");
+
+  const [starValidationFailureClass, setStarValidationFailureClass] = useState(
+    false
+  );
+  const [nameValidationFailureClass, setNameValidationFailureClass] = useState(
+    false
+  );
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const handleTextAreaCount = (e) => {
-    console.log(e);
+  const handleTextArea = (e) => {
     const message = e.target.value;
     const messageLength = message.length;
     setReviewCount(messageLength);
+    setFormReviewText(message);
+  };
+
+  const handleNameInput = (e) => {
+    const name = e.target.value;
+    setFormName(name);
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      stars: formRatedStars,
+      message: formReviewText,
+      name: formName,
+    });
+
+    let validationFailure = false;
+
+    if (formRatedStars < 1 || formRatedStars > 5) {
+      validationFailure = true;
+      setStarValidationFailureClass(true);
+    } else {
+      setStarValidationFailureClass(false);
+    }
   };
 
   return (
     <>
-      <Button className="rating-window-button" variant="primary" onClick={handleShow}>
+      <Button
+        className="rating-window-button"
+        variant="primary"
+        onClick={handleShow}
+      >
         Tyck till om produkten
       </Button>
 
@@ -37,11 +71,17 @@ export default function RatingWindow(props) {
             <div className="star-container">
               <label
                 htmlFor={`product-id-${props.productId}`}
-                className="rating-label"
+                className={`rating-label ${
+                  starValidationFailureClass ? "validation-failure" : null
+                }`}
               >
                 <strong>Betygsätt produkten</strong> (obligatoriskt)
               </label>
-              <StarRatingModal id={props.productId} />
+              <StarRatingModal
+                id={props.productId}
+                formRatedStars={formRatedStars}
+                setFormRatedStars={setFormRatedStars}
+              />
             </div>
             <div className="review-container">
               <label htmlFor="product-review" className="review-label">
@@ -54,7 +94,7 @@ export default function RatingWindow(props) {
                   className="review-textarea"
                   maxLength="150"
                   name="review"
-                  onChange={handleTextAreaCount}
+                  onChange={handleTextArea}
                   placeholder="Din recension kommer att hjälpa andra människor att ta bättre beslut!"
                 ></textarea>
                 <span className="review-character-count">{`${reviewCount}/150`}</span>
@@ -68,6 +108,7 @@ export default function RatingWindow(props) {
                 placeholder="Ditt namn..."
                 name="name"
                 className="review-input"
+                onChange={handleNameInput}
               ></input>
               <p className="disclaimer">
                 Dina svar hanteras anonymt, lämna inga personuppgifter. Vänligen
@@ -76,11 +117,19 @@ export default function RatingWindow(props) {
               </p>
             </div>
             <div className="button-container">
-              <Button id="send-button" variant="primary" onClick={handleFormSubmit}>
+              <Button
+                id="send-button"
+                variant="primary"
+                onClick={handleFormSubmit}
+              >
                 Skicka betyg
               </Button>
 
-              <Button id="abort-button" variant="secondary" onClick={handleClose}>
+              <Button
+                id="abort-button"
+                variant="secondary"
+                onClick={handleClose}
+              >
                 Avbryt
               </Button>
             </div>
