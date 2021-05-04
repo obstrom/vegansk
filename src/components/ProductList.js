@@ -10,16 +10,22 @@ export default createServer({
       productId: 1,
       value: 4,
       text: "Supergott!",
+      name: "Bengt",
+      date: "11 mars 2021"
     });
     server.create("rating", {
       productId: 2,
       value: 3,
       text: "OK",
+      name: "Berra",
+      date: "12 april 2021"
     });
     server.create("rating", {
       productId: 3,
       value: 1,
       text: "Bläää...",
+      name: "Maria",
+      date: "18 mars 2021"
     });
   },
 
