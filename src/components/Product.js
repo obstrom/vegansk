@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
@@ -16,6 +17,21 @@ function Product(props) {
     const productData = props.productDataAll[productId - 1];
     const specialIngredientsData = props.specialIngredients;
 
+    const [productReviewData, setProductReviewData] = useState([]);
+
+    const fetchProductReviewData = async () => {
+        return await fetch("./api/rating")
+            .then((response) => response.json())
+            .then((data) => {
+                setProductReviewData(data);
+                console.log("mirageData", data);
+            });
+    };
+
+    useEffect(() => {
+        fetchProductReviewData();
+    }, []);
+
     const productTitleAwnser = (bool) => {
         if (bool) {
             return (
@@ -33,7 +49,7 @@ function Product(props) {
         );
     };
 
-    const renderVeganThumb = (bool) => {
+    /*const renderVeganThumb = (bool) => {
         if (bool) {
             return (
                 <img
@@ -51,7 +67,7 @@ function Product(props) {
                 />
             );
         }
-    };
+    };*/
 
     const renderProductIngredients = () => {
         let list = [];
@@ -63,7 +79,6 @@ function Product(props) {
                     </li>
                 );
             } else if (typeof ingred === "object") {
-                console.log(ingred);
                 list.push(
                     <li
                         key={`special-${ingred.specialId}`}
@@ -120,6 +135,16 @@ function Product(props) {
         } else {
             return null;
         }
+    };
+
+    const renderReviews = () => {
+        /*<WrittenReview
+            value={3}
+            name={"Anonym"}
+            date={"21 mars 2021"}
+            text={"Nja, ganska god!"}
+        />;*/
+        console.log("Ratings", productReviewData);
     };
 
     // Make body-tag (outside React) white for product page
@@ -247,6 +272,7 @@ function Product(props) {
                                 <span>{`${"2"} recensioner totalt`}</span>
                             </div>
                             {/* FIXA: Data vi skickar in i WrittenReview är hårdkodat */}
+                            {renderReviews()}
                             <WrittenReview
                                 value={3}
                                 name={"Anonym"}

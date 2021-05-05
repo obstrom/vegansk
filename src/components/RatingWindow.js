@@ -1,5 +1,5 @@
-import {Modal, Button} from "react-bootstrap";
-import {useState, useRef} from "react";
+import { Modal, Button } from "react-bootstrap";
+import { useState, useRef } from "react";
 import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
 
@@ -10,23 +10,24 @@ export default function RatingWindow(props) {
     const [reviewCount, setReviewCount] = useState(0);
 
     const [displayNormalState, setDisplayNormalState] = useState("");
-    const [displayThankYouState, setDisplayThankYouState] = useState('d-none')
+    const [displayThankYouState, setDisplayThankYouState] = useState("d-none");
 
     const [formRatedStars, setFormRatedStars] = useState(0);
     const [formReviewText, setFormReviewText] = useState("");
     const [formName, setFormName] = useState("");
 
-
-    const [starValidationFailureClass, setStarValidationFailureClass] = useState(
-        false
-    );
-    const [nameValidationFailureClass, setNameValidationFailureClass] = useState(
-        false
-    );
+    const [
+        starValidationFailureClass,
+        setStarValidationFailureClass,
+    ] = useState(false);
+    const [
+        nameValidationFailureClass,
+        setNameValidationFailureClass,
+    ] = useState(false);
 
     const handleClose = () => {
-        setShow(false)
-        thankYouState(false)
+        setShow(false);
+        thankYouState(false);
         setFormRatedStars(0);
         setReviewCount(0);
     };
@@ -46,11 +47,6 @@ export default function RatingWindow(props) {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        console.log({
-            stars: formRatedStars,
-            message: formReviewText,
-            name: formName,
-        });
 
         let validationFailure = false;
 
@@ -69,46 +65,42 @@ export default function RatingWindow(props) {
         }
 
         if (!validationFailure) {
-
             const dateNow = new Date();
             const formData = {
                 productId: props.productId,
                 value: formRatedStars,
                 text: formReviewText,
                 name: formName,
-                date: dateNow
-            }
-            postRatingData(formData)
-            thankYouState(true)
-            setTimeout(()=>{handleClose()}, 3000 )
+                date: dateNow,
+            };
+            postRatingData(formData);
+            thankYouState(true);
+            setTimeout(() => {
+                handleClose();
+            }, 3000);
         }
-
     };
 
     function postRatingData(ratingData) {
-
-        console.log(ratingData);
         const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(ratingData)
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(ratingData),
         };
-        fetch('/api/ratings', requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data));
+        fetch("/api/ratings", requestOptions).then((response) =>
+            response.json()
+        );
     }
 
     function thankYouState(bool) {
-
         if (bool) {
-            setDisplayNormalState("d-none")
-            setDisplayThankYouState("")
+            setDisplayNormalState("d-none");
+            setDisplayThankYouState("");
         } else {
-            setDisplayNormalState("")
-            setDisplayThankYouState("d-none")
+            setDisplayNormalState("");
+            setDisplayThankYouState("d-none");
         }
     }
-
 
     return (
         <>
@@ -122,8 +114,9 @@ export default function RatingWindow(props) {
 
             <Modal className={"rating-modal"} show={show} onHide={handleClose}>
                 <Modal.Header className={"rating-modal-header"} closeButton>
-                    <Modal.Title className={displayNormalState}>Hjälp andra genom att betygsätta
-                        produkten!</Modal.Title>
+                    <Modal.Title className={displayNormalState}>
+                        Hjälp andra genom att betygsätta produkten!
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className={"rating-modal-body"}>
                     <form className={`rating-form ${displayNormalState}`}>
@@ -131,10 +124,13 @@ export default function RatingWindow(props) {
                             <label
                                 htmlFor={`product-id-${props.productId}`}
                                 className={`rating-label ${
-                                    starValidationFailureClass ? "validation-failure" : null
+                                    starValidationFailureClass
+                                        ? "validation-failure"
+                                        : null
                                 }`}
                             >
-                                <strong>Betygsätt produkten</strong> (obligatoriskt)
+                                <strong>Betygsätt produkten</strong>{" "}
+                                (obligatoriskt)
                             </label>
                             <StarRatingModal
                                 id={props.productId}
@@ -143,24 +139,32 @@ export default function RatingWindow(props) {
                             />
                         </div>
                         <div className="review-container">
-                            <label htmlFor="product-review" className="review-label">
+                            <label
+                                htmlFor="product-review"
+                                className="review-label"
+                            >
                                 <strong>Skriv en recension </strong>
                                 (ej obligatoriskt)
                             </label>
                             <div className="review-wrapper">
-                <textarea
-                    id="product-review"
-                    className="review-textarea"
-                    maxLength="150"
-                    name="review"
-                    onChange={handleTextArea}
-                    placeholder="Din recension kommer att hjälpa andra människor att ta bättre beslut!"
-                />
+                                <textarea
+                                    id="product-review"
+                                    className="review-textarea"
+                                    maxLength="150"
+                                    name="review"
+                                    onChange={handleTextArea}
+                                    placeholder="Din recension kommer att hjälpa andra människor att ta bättre beslut!"
+                                />
                                 <span className="review-character-count">{`${reviewCount}/150`}</span>
                             </div>
-                            <label htmlFor="name-input" className={`name-label ${
-                                nameValidationFailureClass ? "validation-failure" : null
-                            }`}>
+                            <label
+                                htmlFor="name-input"
+                                className={`name-label ${
+                                    nameValidationFailureClass
+                                        ? "validation-failure"
+                                        : null
+                                }`}
+                            >
                                 <strong>Ditt namn</strong>
                                 (obligatoriskt)
                             </label>
@@ -172,8 +176,9 @@ export default function RatingWindow(props) {
                                 onChange={handleNameInput}
                             />
                             <p className="disclaimer">
-                                Dina svar hanteras anonymt, lämna inga personuppgifter. Vänligen
-                                kommentera endast på produkten. <br/>
+                                Dina svar hanteras anonymt, lämna inga
+                                personuppgifter. Vänligen kommentera endast på
+                                produkten. <br />
                                 Tack!
                             </p>
                         </div>
@@ -198,20 +203,18 @@ export default function RatingWindow(props) {
                     <div className={`thank-you-state ${displayThankYouState}`}>
                         <div></div>
                         <div className="text-center">
-
                             <p className="thank-you-text">
                                 Tack för din hjälp!
                             </p>
-                            <img src="/images/lemon.svg"/>
+                            <img src="/images/lemon.svg" />
                         </div>
                         <div className="button-container">
                             <Button
                                 id="close-button"
                                 variant="primary"
-                                onClick={handleClose}>
-
+                                onClick={handleClose}
+                            >
                                 Stäng
-
                             </Button>
                         </div>
                     </div>
