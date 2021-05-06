@@ -1,5 +1,5 @@
 import { Modal, Button } from "react-bootstrap";
-import { useState, useReducer } from "react";
+import { useState, useEffect } from "react";
 import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
 import reviewObject from "./reviewObject";
@@ -64,15 +64,8 @@ export default function RatingWindow(props) {
         }
 
         if (!validationFailure) {
-            const dateNow = new Date();
-            const formData = {
-                productId: props.productId,
-                value: formRatedStars,
-                text: formReviewText,
-                name: formName,
-                date: dateNow,
-            };
-            saveRatingData(formData);
+            //const dateNow = new Date();
+            saveRatingData(formRatedStars, formReviewText, formName, "");
             thankYouState(true);
             setTimeout(() => {
                 handleClose();
@@ -80,12 +73,16 @@ export default function RatingWindow(props) {
         }
     };
 
-    function saveRatingData (ratingData) {
-        const review = new reviewObject(ratingData.value, ratingData.text, ratingData.name);
-        const reviewArr = props.allReviews;
-        reviewArr.unshift(review);
-        props.setAllReviews(reviewArr);
-        console.log(props.allReviews)
+    function saveRatingData(ratingValue, reviewText, reviewName, reviewDate) {
+        const reviewOb = new reviewObject(
+            ratingValue,
+            reviewText,
+            reviewName,
+            reviewDate
+        );
+        const reviewArr = props.productAllReviews;
+        reviewArr.unshift(reviewOb);
+        props.productSetAllReviews(Array.from(reviewArr));
     }
 
     function thankYouState(bool) {

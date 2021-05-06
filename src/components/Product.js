@@ -1,15 +1,15 @@
-import {useState, useEffect} from "react";
-import {useLocation, Link} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
 import ModalWindow from "./ModalWindow";
 import RatingWindow from "./RatingWindow";
 import StarRatingProductPage from "./StarRatingProductPage";
 import WrittenReview from "./WrittenReview";
-import './reviewObject.js';
+import "./reviewObject.js";
 import reviewObject from "./reviewObject";
 import ProductAllReviews from "./ProductAllReviews";
-import {map} from "react-bootstrap/ElementChildren";
+import { map } from "react-bootstrap/ElementChildren";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -21,18 +21,11 @@ function Product(props) {
     const productData = props.productDataAll[productId - 1];
     const specialIngredientsData = props.specialIngredients;
 
-
     const defaultReviews = [
-        new reviewObject(4, "smakar bra", "erik"),
-        new reviewObject(3, "smakar helt ok", "magnus"),
-    ]
+        new reviewObject(4, "Smakar bra", "Erik", "3 Mars 2021"),
+        new reviewObject(3, "Helt ok smak", "Magnus", "21 April 2021"),
+    ];
     const [allReviews, setAllReviews] = useState(defaultReviews);
-
-    useEffect(() => {
-
-        console.log("reviews", allReviews)
-
-    }, []);
 
     const productTitleAwnser = (bool) => {
         if (bool) {
@@ -139,21 +132,8 @@ function Product(props) {
         }
     };
 
-    // function renderReviews(){
-    //
-    //     console.log("nu körs jag")
-    //     return (
-    //         <>
-    //             {allReviews.map((review, index) => {
-    //                 return <WrittenReview key={index+1} value={review.rating} name={review.name} text={review.review} date={""}/>
-    //             })}</>
-    //     )
-    // }
-
-
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
-
 
     return (
         <div className={`product-page product-${productData.id}`}>
@@ -196,7 +176,7 @@ function Product(props) {
                                 <div className="card-header" id="headingOne">
                                     <h5 className="mb-0">
                                         <button
-                                            className="btn btn-link"
+                                            className="btn btn-link collapsed"
                                             data-toggle="collapse"
                                             data-target="#collapseOne"
                                             aria-expanded="true"
@@ -216,7 +196,7 @@ function Product(props) {
 
                                 <div
                                     id="collapseOne"
-                                    className="collapse show"
+                                    className="collapse"
                                     aria-labelledby="headingOne"
                                     data-parent="#accordion"
                                 >
@@ -266,18 +246,20 @@ function Product(props) {
                             <a href="#">Rapportera felaktighet</a>
                         </div>
                         {/* FIXA: Data vi skickar in i StarRatingProductPage är hårdkodat */}
-                        <StarRatingProductPage value={3.9}/>
+                        <StarRatingProductPage value={3.9} />
                         <div className="rating-container text-center">
-                            <RatingWindow productId={productId} allReviews={allReviews} setAllReviews={setAllReviews}/>
+                            <RatingWindow
+                                productId={productId}
+                                productAllReviews={allReviews}
+                                productSetAllReviews={setAllReviews}
+                            />
                         </div>
                         <div className="written-reviews-container">
                             <div className="title-reviews">
                                 <h5>Kundrecensioner</h5>
-                                {/* FIXA: Antal recensioner är nu hårdkodat */}
-                                <span>{`${"2"} recensioner totalt`}</span>
+                                <span>{`${allReviews.length} recensioner totalt`}</span>
                             </div>
-                            {/* FIXA: Data vi skickar in i WrittenReview är hårdkodat */}
-                            <ProductAllReviews reviewData={allReviews}/>
+                            <ProductAllReviews reviewData={allReviews} />
                         </div>
                     </div>
                 </div>

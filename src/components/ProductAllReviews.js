@@ -1,17 +1,20 @@
 import WrittenReview from "./WrittenReview";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
-export default function ProductAllReviews(props){
-    useEffect(() => {
-
-        console.log("reviews", props.reviewData)
-
-    }, );
-    console.log("nu körs jag")
+export default function ProductAllReviews(props) {
     return (
         <>
             {props.reviewData.map((review, index) => {
-                return <WrittenReview key={index+1} value={review.rating} name={review.name} text={review.review} date={""}/>
-            })}</>
-    )
+                return (
+                    <WrittenReview
+                        key={index + 1}
+                        value={review.rating}
+                        name={review.name}
+                        text={review.review}
+                        date={review.date}
+                    />
+                );
+            })}
+        </>
+    );
 }
