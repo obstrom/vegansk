@@ -1,11 +1,15 @@
-import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {useLocation, Link} from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
 import ModalWindow from "./ModalWindow";
 import RatingWindow from "./RatingWindow";
 import StarRatingProductPage from "./StarRatingProductPage";
 import WrittenReview from "./WrittenReview";
+import './reviewObject.js';
+import reviewObject from "./reviewObject";
+import ProductAllReviews from "./ProductAllReviews";
+import {map} from "react-bootstrap/ElementChildren";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -17,19 +21,17 @@ function Product(props) {
     const productData = props.productDataAll[productId - 1];
     const specialIngredientsData = props.specialIngredients;
 
-    const [productReviewData, setProductReviewData] = useState([]);
 
-    const fetchProductReviewData = async () => {
-        return await fetch("./api/rating")
-            .then((response) => response.json())
-            .then((data) => {
-                setProductReviewData(data);
-                console.log("mirageData", data);
-            });
-    };
+    const defaultReviews = [
+        new reviewObject(4, "smakar bra", "erik"),
+        new reviewObject(3, "smakar helt ok", "magnus"),
+    ]
+    const [allReviews, setAllReviews] = useState(defaultReviews);
 
     useEffect(() => {
-        fetchProductReviewData();
+
+        console.log("reviews", allReviews)
+
     }, []);
 
     const productTitleAwnser = (bool) => {
@@ -137,18 +139,21 @@ function Product(props) {
         }
     };
 
-    const renderReviews = () => {
-        /*<WrittenReview
-            value={3}
-            name={"Anonym"}
-            date={"21 mars 2021"}
-            text={"Nja, ganska god!"}
-        />;*/
-        console.log("Ratings", productReviewData);
-    };
+    // function renderReviews(){
+    //
+    //     console.log("nu körs jag")
+    //     return (
+    //         <>
+    //             {allReviews.map((review, index) => {
+    //                 return <WrittenReview key={index+1} value={review.rating} name={review.name} text={review.review} date={""}/>
+    //             })}</>
+    //     )
+    // }
+
 
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
+
 
     return (
         <div className={`product-page product-${productData.id}`}>
@@ -261,9 +266,9 @@ function Product(props) {
                             <a href="#">Rapportera felaktighet</a>
                         </div>
                         {/* FIXA: Data vi skickar in i StarRatingProductPage är hårdkodat */}
-                        <StarRatingProductPage value={3.9} />
+                        <StarRatingProductPage value={3.9}/>
                         <div className="rating-container text-center">
-                            <RatingWindow productId={productId} />
+                            <RatingWindow productId={productId} allReviews={allReviews} setAllReviews={setAllReviews}/>
                         </div>
                         <div className="written-reviews-container">
                             <div className="title-reviews">
@@ -272,19 +277,7 @@ function Product(props) {
                                 <span>{`${"2"} recensioner totalt`}</span>
                             </div>
                             {/* FIXA: Data vi skickar in i WrittenReview är hårdkodat */}
-                            {renderReviews()}
-                            <WrittenReview
-                                value={3}
-                                name={"Anonym"}
-                                date={"21 mars 2021"}
-                                text={"Nja, ganska god!"}
-                            />
-                            <WrittenReview
-                                value={4}
-                                name={"Berra"}
-                                date={"18 mars 2021"}
-                                text={"Hade gett den 5 av 5 men..."}
-                            />
+                            <ProductAllReviews reviewData={allReviews}/>
                         </div>
                     </div>
                 </div>

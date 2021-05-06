@@ -1,9 +1,8 @@
 import { Modal, Button } from "react-bootstrap";
-import { useState, useRef } from "react";
+import { useState, useReducer } from "react";
 import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
-
-import moment from "moment";
+import reviewObject from "./reviewObject";
 
 export default function RatingWindow(props) {
     const [show, setShow] = useState(false);
@@ -73,7 +72,7 @@ export default function RatingWindow(props) {
                 name: formName,
                 date: dateNow,
             };
-            postRatingData(formData);
+            saveRatingData(formData);
             thankYouState(true);
             setTimeout(() => {
                 handleClose();
@@ -81,15 +80,12 @@ export default function RatingWindow(props) {
         }
     };
 
-    function postRatingData(ratingData) {
-        const requestOptions = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(ratingData),
-        };
-        fetch("/api/ratings", requestOptions).then((response) =>
-            response.json()
-        );
+    function saveRatingData (ratingData) {
+        const review = new reviewObject(ratingData.value, ratingData.text, ratingData.name);
+        const reviewArr = props.allReviews;
+        reviewArr.unshift(review);
+        props.setAllReviews(reviewArr);
+        console.log(props.allReviews)
     }
 
     function thankYouState(bool) {
