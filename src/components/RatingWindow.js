@@ -64,8 +64,9 @@ export default function RatingWindow(props) {
         }
 
         if (!validationFailure) {
-            //const dateNow = new Date();
-            saveRatingData(formRatedStars, formReviewText, formName, "");
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            const dateNow = new Date().toLocaleDateString("sv-SE", options);
+            saveRatingData(formRatedStars, formReviewText, formName, dateNow);
             thankYouState(true);
             setTimeout(() => {
                 handleClose();
