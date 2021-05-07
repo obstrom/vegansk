@@ -36,15 +36,12 @@ function App() {
                     <Route
                         path="/"
                         exact
-                        component={(props) => (
-                            <Home {...props} allProducts={allProducts} />
-                        )}
+                        component={() => <Home allProducts={allProducts} />}
                     />
                     <Route
                         path="/products/"
-                        component={(props) => (
+                        component={() => (
                             <Product
-                                {...props}
                                 productDataAll={allProducts}
                                 specialIngredients={specialIngredients}
                             />

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
@@ -5,6 +6,10 @@ import ModalWindow from "./ModalWindow";
 import RatingWindow from "./RatingWindow";
 import StarRatingProductPage from "./StarRatingProductPage";
 import WrittenReview from "./WrittenReview";
+import "./reviewObject.js";
+import reviewObject from "./reviewObject";
+import ProductAllReviews from "./ProductAllReviews";
+import { map } from "react-bootstrap/ElementChildren";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -15,6 +20,12 @@ function Product(props) {
     const productId = getProductIdFromPath(useLocation());
     const productData = props.productDataAll[productId - 1];
     const specialIngredientsData = props.specialIngredients;
+
+    const defaultReviews = [
+        new reviewObject(4, "Smakar bra", "Erik", "3 Mars 2021"),
+        new reviewObject(3, "Helt ok smak", "Magnus", "21 April 2021"),
+    ];
+    const [allReviews, setAllReviews] = useState(defaultReviews);
 
     const productTitleAwnser = (bool) => {
         if (bool) {
@@ -33,7 +44,7 @@ function Product(props) {
         );
     };
 
-    const renderVeganThumb = (bool) => {
+    /*const renderVeganThumb = (bool) => {
         if (bool) {
             return (
                 <img
@@ -51,7 +62,7 @@ function Product(props) {
                 />
             );
         }
-    };
+    };*/
 
     const renderProductIngredients = () => {
         let list = [];
@@ -63,7 +74,6 @@ function Product(props) {
                     </li>
                 );
             } else if (typeof ingred === "object") {
-                console.log(ingred);
                 list.push(
                     <li
                         key={`special-${ingred.specialId}`}
@@ -166,7 +176,7 @@ function Product(props) {
                                 <div className="card-header" id="headingOne">
                                     <h5 className="mb-0">
                                         <button
-                                            className="btn btn-link"
+                                            className="btn btn-link collapsed"
                                             data-toggle="collapse"
                                             data-target="#collapseOne"
                                             aria-expanded="true"
@@ -186,7 +196,7 @@ function Product(props) {
 
                                 <div
                                     id="collapseOne"
-                                    className="collapse show"
+                                    className="collapse"
                                     aria-labelledby="headingOne"
                                     data-parent="#accordion"
                                 >
@@ -238,27 +248,18 @@ function Product(props) {
                         {/* FIXA: Data vi skickar in i StarRatingProductPage är hårdkodat */}
                         <StarRatingProductPage value={3.9} />
                         <div className="rating-container text-center">
-                            <RatingWindow productId={productId} />
+                            <RatingWindow
+                                productId={productId}
+                                productAllReviews={allReviews}
+                                productSetAllReviews={setAllReviews}
+                            />
                         </div>
                         <div className="written-reviews-container">
                             <div className="title-reviews">
                                 <h5>Kundrecensioner</h5>
-                                {/* FIXA: Antal recensioner är nu hårdkodat */}
-                                <span>{`${"2"} recensioner totalt`}</span>
+                                <span>{`${allReviews.length} recensioner totalt`}</span>
                             </div>
-                            {/* FIXA: Data vi skickar in i WrittenReview är hårdkodat */}
-                            <WrittenReview
-                                value={3}
-                                name={"Anonym"}
-                                date={"21 mars 2021"}
-                                text={"Nja, ganska god!"}
-                            />
-                            <WrittenReview
-                                value={4}
-                                name={"Berra"}
-                                date={"18 mars 2021"}
-                                text={"Hade gett den 5 av 5 men..."}
-                            />
+                            <ProductAllReviews reviewData={allReviews} />
                         </div>
                     </div>
                 </div>
