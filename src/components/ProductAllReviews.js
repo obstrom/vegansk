@@ -13,6 +13,7 @@ export default function ProductAllReviews(props) {
                         text={review.review}
                         date={review.date}
                     />
+
                 );
             })}
         </>
