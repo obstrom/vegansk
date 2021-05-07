@@ -26,6 +26,20 @@ function Product(props) {
         new reviewObject(3, "Helt ok smak", "Magnus", "21 April 2021"),
     ];
     const [allReviews, setAllReviews] = useState(defaultReviews);
+    const [averageRating, setAverageRating] = useState(0);
+
+    function calculateAverageRating(){
+        const ratingArray = []
+        allReviews.forEach(reviewObj=>{
+            ratingArray.push(reviewObj.rating)
+        })
+        const result =  ratingArray.reduce((sum, value)=>{
+            return sum+value;
+        })
+        return (result/ratingArray.length).toFixed(1);
+
+
+    }
 
     const productTitleAwnser = (bool) => {
         if (bool) {
@@ -246,7 +260,9 @@ function Product(props) {
                             <a href="#">Rapportera felaktighet</a>
                         </div>
                         {/* FIXA: Data vi skickar in i StarRatingProductPage är hårdkodat */}
-                        <StarRatingProductPage value={3.9} />
+                        <StarRatingProductPage value={
+                            calculateAverageRating()
+                        } />
                         <div className="rating-container text-center">
                             <RatingWindow
                                 productId={productId}
