@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import StartInfo from "./StartInfo";
 import SearchResults from "./SearchResults";
-import createServer from './ProductList';
+import createServer from "./ProductList";
 
 function StartSearch(props) {
     const productList = props.allProductsList;
@@ -10,13 +10,10 @@ function StartSearch(props) {
 
     const searchInputElement = useRef(null);
 
-    const fetchRatingData = async () => {
-        return await fetch("./api/ratings")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("ratings: ", data);
-            });
-    };
+    // Test kod
+    /*const fetchRatingData = async () => {
+        return await fetch("./api/rating").then((res) => res.json());
+    };*/
 
     const updateFilteredList = async (query) => {
         const filtered = productList.filter((product) => {
@@ -40,18 +37,17 @@ function StartSearch(props) {
         const inputText = searchInputElement.current.value;
 
         if (inputText) {
-
-            //Testkod för post ratings//
+            //Testkod för POST (skicka) ratings//
             const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title: 'React POST Request Example' })
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ title: "Det här är en test!" }),
             };
-            fetch('/api/ratings', requestOptions)
-                .then(response => response.json());
+            fetch("/api/rating", requestOptions).then((response) =>
+                response.json()
+            );
 
-            fetchRatingData();    
-                
+            //fetchRatingData();
 
             setShowSearchResults(true);
             updateFilteredList(inputText);

@@ -127,10 +127,30 @@
   padding: 10px 0px;
 }
 
-.rating-modal #send-button {
+.rating-modal #send-button, #close-button {
   background-color: #f5c300;
 }
 
 .rating-modal #abort-button {
   background: none;
+}
+
+.thank-you-state{
+  height: 631px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.thank-you-state .thank-you-text{
+  color: #4f6c65;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 33px;
+
+}
+
+
+.thank-you-state #close-button{
+
 }
