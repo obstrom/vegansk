@@ -70,7 +70,7 @@
 
 .product-page .product-image-section {
     justify-content: center;
-    padding: 1em 0 3em 0;
+    padding: 1em 0 1em;
 }
 
 .product-page .product-image-container {
@@ -95,6 +95,7 @@
 
 .product-page .product-title-wrapper {
     display: inline-flex;
+    justify-content: space-between;
     gap: 10px;
     margin-left: auto;
 }
@@ -102,8 +103,8 @@
 .product-page .product-title {
     font-style: normal;
     font-weight: bold;
-    font-size: 2em;
-    line-height: 1.5em;
+    font-size: 22px;
+    line-height: 33px;
     color: #000;
 }
 
@@ -203,8 +204,7 @@
 }
 
 .product-page .product-report-wrapper {
-    padding-top: 2em;
-    padding-bottom: 4em;
+    padding-bottom: 1.5em;
 }
 
 .product-page .product-report-wrapper a {
@@ -215,11 +215,70 @@
     text-decoration: underline;
 }
 
+.star-icon-container svg {
+    width: 19px;
+    height: 19px;
+}
+
+.star-icon-container span {
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+.written-reviews-container {
+    padding-bottom: 30px;
+}
+
+.written-reviews-container .title-reviews {
+    padding-bottom: 4px;
+    border-bottom: solid 1px #000;
+    font-size: 12px;
+    font-style: normal;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.written-reviews-container .title-reviews h5 {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 0;
+    text-align: left;
+    font-weight: 700;
+    display: inline;
+}
+
+.written-reviews-container .single-review {
+    border-bottom: solid 1px #000;
+    padding: 10px 0;
+}
+
+.written-reviews-container .star-icon-container {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.written-reviews-container .star-icon-container img {
+    width: 12px;
+    height: 12px;
+}
+
+.written-reviews-container .star-icon-container span {
+    margin-left: 9px;
+    font-size: 10px;
+}
+
+.written-reviews-container .single-review-header,
+.written-reviews-container .single-review-text {
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
 /*.product-page .product-sticky-footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100%;    
     background: var(--color-bg-dark);
     padding: 1em;
 }

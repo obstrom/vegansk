@@ -1,6 +1,34 @@
-import { createServer } from "miragejs";
+import { createServer, Model } from "miragejs";
 
 export default createServer({
+    models: {
+        rating: Model,
+    },
+
+    seeds(server) {
+        server.create("rating", {
+            productId: 1,
+            value: 4,
+            text: "Supergott!",
+            name: "Bengt",
+            date: "11 mars 2021",
+        });
+        server.create("rating", {
+            productId: 2,
+            value: 3,
+            text: "OK",
+            name: "Berra",
+            date: "12 april 2021",
+        });
+        server.create("rating", {
+            productId: 3,
+            value: 1,
+            text: "Bläää...",
+            name: "Maria",
+            date: "18 mars 2021",
+        });
+    },
+
     routes() {
         this.namespace = "api";
 
@@ -162,5 +190,14 @@ export default createServer({
                     "Kaliumklorid smakar salt och används vid matlagning i saltblandningar med mindre andel natriumklorid",
             },
         ]);
+
+        this.get("/rating", (schema) => {
+            return schema.rating.all();
+        });
+
+        this.post("/rating", (schema, request) => {
+            let attrs = JSON.parse(request.requestBody);
+            return schema.rating.create(attrs);
+        });
     },
 });
