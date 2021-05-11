@@ -1,18 +1,9 @@
-.rating-window-button,
-.rating-window-button:hover,
-.rating-window-button:focus {
-  font-size: 13px;
-  justify-content: center;
-  width: 185px;
-  align-self: center;
-  color: #38514b;
-  border: none;
-  border-radius: 0;
-  font-weight: 600;
-  padding: 10px 0;
-  background-color: #f5c300;
-  margin-bottom: 47px;
-  margin-top: 20px;
+.feedback-button-text {
+  font-size: 12px;
+  line-height: 18px;
+  display: block;
+  padding-top: 7px;
+  width: 75px;
 }
 
 .rating-modal .modal-content {
@@ -127,7 +118,8 @@
   padding: 10px 0px;
 }
 
-.rating-modal #send-button, #close-button {
+.rating-modal #send-button,
+#close-button {
   background-color: #f5c300;
 }
 
@@ -135,22 +127,19 @@
   background: none;
 }
 
-.thank-you-state{
+.thank-you-state {
   height: 631px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.thank-you-state .thank-you-text{
+.thank-you-state .thank-you-text {
   color: #4f6c65;
   font-weight: bold;
   font-size: 22px;
   line-height: 33px;
-
 }
 
-
-.thank-you-state #close-button{
-
+.thank-you-state #close-button {
 }

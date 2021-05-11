@@ -203,16 +203,24 @@
     margin: 0;
 }
 
-.product-page .product-report-wrapper {
-    padding-bottom: 1.5em;
+.feedback-button,
+.feedback-button:hover,
+.feedback-button:focus {
+  font-size: 14px;
+  width: 50px;
+  height: 50px;
+  color: #38514b;
+  border: none;
+  border-radius: 100%;
+  padding: 0px;
+  font-weight: bold;
+  background-color: #f5c300;
+  box-shadow: 0px 2.73973px 2.73973px rgba(0, 0, 0, 0.2);
+  overflow: visible;
 }
 
-.product-page .product-report-wrapper a {
-    font-weight: 400;
-    style: normal;
-    font-size: 0.75em;
-    line-height: 1.5em;
-    text-decoration: underline;
+.feedback-button-container{
+
 }
 
 .star-icon-container svg {
