@@ -94,7 +94,7 @@ export default function RatingWindow(props) {
 
   return (
     <>
-      <div className="feedback-button-container">
+      <div className="feedback-button-container text-center">
         <Button
           id="rating-window-button"
           className="feedback-button"
@@ -103,10 +103,7 @@ export default function RatingWindow(props) {
         >
           {props.calculateAverageRating()}/5
         </Button>
-        <label
-          htmlFor="rating-window-button"
-          className="feedback-button-text"
-        >
+        <label htmlFor="rating-window-button" className="feedback-button-text">
           Tyck till om produkten
         </label>
       </div>

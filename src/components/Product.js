@@ -254,8 +254,8 @@ function Product(props) {
               </div>
               <ProductAllReviews reviewData={allReviews} />
             </div>
-            <div className="rating-container text-center">
-              <div className="feedback-button-container">
+            <div className="rating-container">
+              <div className="feedback-button-container text-center">
                 <button
                   type="image"
                   className="feedback-button"
