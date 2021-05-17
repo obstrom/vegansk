@@ -1,382 +1,127 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --color-bg-dark: #38514b; /* Mörkgrön */
-  --color-bg-light: #eee7d5; /* Ljus sandgrå */
-  --color-bg-danger: #ef7878;
-  --color-pure-white: #fff;
-  --color-bg-off-gray: #e6e7ec;
-  /*--color-off-white: #f2f2f2; /* /* Gray 6 */
-  --color-bg-gray: #c4c4c4;
-  --color-gray: #bdbdbd; /* Gray 4 */
-  --color-accent: #f5c300; /* Senapsgul */
-  font-size: 10px; /* REM-hack dividera alla px med 10 genom hela programmet, alltså: 600px => 60rem*/
+    --color-bg-dark: #38514b; /* Mörkgrön */
+    --color-bg-light: #eee7d5; /* Ljus sandgrå */
+    --color-bg-danger: #ef7878;
+    --color-pure-white: #fff;
+    --color-bg-off-gray: #e6e7ec;
+    /*--color-off-white: #f2f2f2; /* /* Gray 6 */
+    --color-bg-gray: #c4c4c4;
+    --color-gray: #bdbdbd; /* Gray 4 */
+    --color-accent: #f5c300; /* Senapsgul */
+    font-size: 10px; /* REM-hack dividera alla px med 10 genom hela programmet, alltså: 600px => 60rem*/
 }
 
 body {
-  /* Rectangle 6722 */
-  font-family: "Poppins", sans-serif;
-  background: var(--color-bg-dark); /* Mörkgrön */
+    /* Rectangle 6722 */
+    font-family: "Poppins", sans-serif;
+    background: var(--color-bg-dark); /* Mörkgrön */
 }
 
 .App {
-  max-width: 60rem;
-  margin-top: 7.6rem;
+    max-width: 60rem;
+    margin-top: 7.6rem;
+    padding: 0 3.6rem;
 }
 
 .title-container {
-  text-align: center;
+    text-align: center;
 }
 
 .title-icon {
-  width: 16.2rem;
+    width: 16.2rem;
 }
 
 h1.title {
-  margin-top: 1.8rem;
-  margin-bottom: 9.7rem;
+    margin-top: 1.8rem;
+    margin-bottom: 9.7rem;
 
-  /* ÄR DEN VEGANSK? */
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 3.16rem;
-  line-height: 3.4rem;
-  color: var(--color-accent);
-  /* Senapsgul */
+    /* ÄR DEN VEGANSK? */
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.16rem;
+    line-height: 3.4rem;
+    color: var(--color-accent);
+    /* Senapsgul */
+}
+
+.input-container.form {
+    display: flex;
+    justify-content: center;
+    align-content: stretch;
+    flex-wrap: wrap;
 }
 
 #search-input {
-  /* Rectangle 6539 */
-  width: 100%;
-  padding: 1.1rem 2.2rem;
-  font-size: 1.2rem;
-  background: var(--color-bg-off-gray);
-  border: none;
-  box-sizing: border-box;
-  border-radius: 2.9rem;
+    /* Rectangle 6539 */
+    width: 100%;
+    padding: 1.1rem 2.2rem;
+    font-size: 1.2rem;
+    background: var(--color-bg-off-gray);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2.9rem;
 }
 
 #search-input:focus {
-  outline: none;
+    outline: none;
 }
 
 #search-input::placeholder {
-  color: #000;
-  opacity: 0.8;
+    color: #000;
+    opacity: 0.8;
 }
 
 #search-button {
-  /* BÖRJA OMVANDLA TILL REM HÄRIFRÅN 12/5-21*/
-  background: var(--color-accent);
-  color: var(--color-bg-dark);
-  padding: 0.2em 2em;
-  border: none;
-  /*text-transform: uppercase;*/
-  font-weight: 600;
-  font-size: 1.1em;
-  margin-left: 1em;
+    background: var(--color-accent);
+    color: var(--color-bg-dark);
+    padding: 0.4rem 2.2rem;
+    margin-top: 3.4rem;
+    border: none;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 1.8rem;
 }
 
 #search-button:hover,
 #search-button:active {
-  filter: brightness(85%);
+    filter: brightness(85%);
 }
 
 #search-input:hover {
-  filter: brightness(95%);
+    filter: brightness(95%);
 }
 
 .info-container {
-  /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
-  margin-top: 4em;
-  font-style: normal;
-  text-align: center;
-  color: var(--color-pure-white);
+    /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
+    margin-top: 7.7rem;
+    font-style: normal;
+    text-align: center;
+    color: var(--color-pure-white);
 }
 
 .info-container h2 {
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 700;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 700;
 }
 
 .info-container p {
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
 }
 
-.search-results {
-  margin-top: 2em;
-  width: 100%;
-  /*background: var(--color-bg-off-gray);*/
-  background: var(--color-pure-white);
-}
-
-.search-results button {
-  color: black;
-}
-
-.search-results ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.search-results li {
-  color: #000;
-  padding: 1em;
-  cursor: pointer;
-}
-
-.search-results li:hover {
-  background: var(--color-gray);
-}
-
-.search-results .product-image {
-  width: 4em;
-  margin-right: 1em;
-  height: -webkit-fill-available; /* Chrome fix */
-  height: -moz-fit-content; /* Firefox fix */
-  height: intrinsic; /* Safari fix */
-  align-items: flex-start;
-}
-
-.search-results .vegan-mark {
-  text-align: center;
-}
-
-.search-results .vegan-true {
-  padding-right: 1.25%;
-}
-
-.search-results .vegan-mark img {
-  height: 3.5em;
-}
-
-.sticky-fade {
-  position: fixed;
-  height: 30vh;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(56, 81, 75, 1) 0%,
-    rgba(56, 81, 75, 0) 100%
-  );
-}
-
-/* when screen size is smaller then 800px */
-@media screen and (max-width: 800px) {
-  /* .App {
-    max-width: 90vw; /* 90% viewport width */
-  /*margin-top: 10vh; /* 10% viewport height */
-  /*height: inherit;
-  }
-
-  .title-icon {
-    width: 12em;
-  }
-
-  h1.title {
-    margin-bottom: 8vh;
-  }
-
-  #search-button {
-    padding: 0.2em 1em;
-  }
-
-  .search-results li {
-    padding: 0.75em 1em;
-  }
-
-  .search-result-product .product-name {
-    font-size: 0.8em;
-  }
-
-  .search-results .vegan-mark img {
-    height: 2.5em;
-  } */
-}
-
-.product-page .Product {
-  background: var(--color-pure-white);
-  /*position: absolute;*/
-  /* width: 375px; */
-  /* height: 812px; */
-  /* left: 2530px;
-    top: 1747px; */
-  padding: unset;
-}
-.product-page .product-top {
-  background: var(--color-bg-dark);
-  font-style: normal;
-  font-weight: 900;
-  font-size: 148.025px;
-  line-height: 102%;
-  /*or 151px*/
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 00.01em;
-  color: var(--color-accent);
-}
-
-/* JA */
-.product-page .product-answer {
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 50px;
-  line-height: 102%;
-  text-align: center;
-  letter-spacing: 0.01em;
-
-  /* position: absolute; */
-  left: 28.28%;
-  right: 29.67%;
-  top: 24.08%;
-  bottom: 28.41%;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 114.467px;
-  line-height: 102%;
-  /* identical to box height, or 117px */
-  text-align: center;
-  letter-spacing: 0.01em;
-
-  /* Gray 6 */
-  color: #f2f2f2;
-}
-
-/* ny CSS 20/4 */
-/* VEGANSK */
-.product-page .specify-answer {
-  /* position: absolute; Om denna kodrad används kastas "Vegansk" ut ur centreringen.*/
-  left: 27.11%;
-  right: 29.47%;
-  top: 64.81%;
-  bottom: 15.37%;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32.229px;
-  line-height: 48px;
-  /* identical to box height */
-  text-align: center;
-
-  /* Senapsgul */
-  color: #f5c300;
-}
-
-.product-page .product-name {
-  margin-left: 1em;
-  /*width: 373.27px;  prova margin, och vh, pt eller em som enhet. För text kan man använda pt, em.
-height: 39.36px;
-left: 67.87px;
-top: 344.76px;
-padding-bottom: 20x;*/
-  /* 
-margin: 10 em;
-
-font-family: Poppins;
-font-style: normal;
-font-weight: bold;
-font-size: 29.8613px;
-line-height: 45px;
-text-align: center;
-color: #000000; */
-
-  /* Nytt info Flora mjölkfri 400g 20/4-21*/
-  /*position: absolute;
-left: 0%;*/
-  right: 28.52%;
-  top: 0%;
-  bottom: 84.65%;
-
-  /* H1 24pt */
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 33px;
-  /* identical to box height */
-
-  color: #000000;
-}
-
-.product-page .product-information {
-  /* Produktinformation */
-
-  /* position: absolute; 
-left: 0%;
-right: 44.63%;
-top: 20.47%;
-bottom: 68.84%;*/
-
-  text-align: initial;
-  margin: 10em;
-
-  /* Rubrik 14pt Bold */
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 21px;
-
-  color: #000000;
-}
-
-.product-page .ingredients {
-  /*position: absolute;*/
-  width: 145px;
-  height: 33px;
-  left: 100em;
-  top: 382px;
-
-  /* H1 24pt */
-
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 33px;
-  /* identical to box height */
-
-  color: #000000;
-}
-.product-page .ingredient-list {
-  /*position: absolute;*/
-  list-style: none;
-  width: 238px;
-  height: 199px;
-  left: 56px;
-  top: 434px;
-
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 27px;
-  letter-spacing: 0.01em;
-
-  color: #000000;
-  text-align: left;
-}
-
-.product-page .report-flawes {
-  text-align: center;
-  text-decoration-line: underline;
-}
-
-.product-page .footer {
-  /* Rectangle 6732 */
-
-  /* position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%; */
-
-  /* Mörkgrön */
-  background: #38514b;
-  text-align: center;
-}
+/*.sticky-fade {
+    position: fixed;
+    height: 30vh;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+        0deg,
+        rgba(56, 81, 75, 1) 0%,
+        rgba(56, 81, 75, 0) 100%
+    );
+}*/
