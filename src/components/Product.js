@@ -43,15 +43,21 @@ function Product(props) {
     if (bool) {
       return (
         <>
-          <h1>Ja</h1>
-          <h2>Vegansk</h2>
+          <div className="answer-image-container">
+            <img className="answer-image" src="/images/happylemon.svg" />
+          </div>
+          <h1>Hurra!</h1>
+          <h2>Produkten är vegansk</h2>
         </>
       );
     }
     return (
       <>
-        <h1>Nej</h1>
-        <h2>Ej vegansk</h2>
+        <div className="answer-image-container">
+          <img className="answer-image" src="/images/blueberry.svg" />
+        </div>
+        <h1>Tyvärr</h1>
+        <h2>Produkten är inte vegansk</h2>
       </>
     );
   };
