@@ -10,6 +10,10 @@ import "./reviewObject.js";
 import reviewObject from "./reviewObject";
 import ProductAllReviews from "./ProductAllReviews";
 import { map } from "react-bootstrap/ElementChildren";
+import ProductInfoBox from "./ProductInfoBox";
+
+
+
 
 function Product(props) {
   const getProductIdFromPath = (location) => {
@@ -60,7 +64,7 @@ function Product(props) {
         <h2>Produkten är inte vegansk</h2>
       </>
     );
-  };
+  }
 
   /*const renderVeganThumb = (bool) => {
         if (bool) {
@@ -164,25 +168,14 @@ function Product(props) {
           </Link>
           <div className="product-title-container container">
             {productTitleAwnser(productData.vegan)}
+            <ProductInfoBox productData={productData} productAverageReview={calculateAverageRating}/>
           </div>
+
         </div>
         <div className="product-info">
           <div className="product-info-container container">
-            <div className="product-image-section d-flex">
-              <div className="product-image-container">
-                <div className="product-image-wrapper d-flex">
-                  <img
-                    className="img-fluid"
-                    src={`/images/products/product-${productData.id}.jpg`}
-                    alt={`Product image of ${productData.name}`}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="product-title-wrapper d-flex">
-              <h3 className="product-title">{`${productData.name}`}</h3>
-              {/*renderVeganThumb(productData.vegan)*/}
-            </div>
+
+
             <h4 className="product-info-header">Produktinformation</h4>
             <div id="accordion" className="product-info-accordion">
               <div className="card">
@@ -252,7 +245,7 @@ function Product(props) {
               </div>
               {renderProductAllergens(productData.allergens.length)}
             </div>
-            <StarRatingProductPage value={calculateAverageRating()} />
+
             <div className="written-reviews-container">
               <div className="title-reviews">
                 <h5>Kundrecensioner</h5>

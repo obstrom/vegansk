@@ -31,7 +31,7 @@ export default function StarRatingProductPage(props) {
   };
 
   return (
-    <div className="text-center">
+    <div>
       <div className="star-icon-container">
         {displayStar()}
         <span>{`${props.value} av 5`}</span>
