@@ -16,7 +16,10 @@
 }
 
 .product-page .product-title-container {
-  padding: 3.15rem 0 4.75rem 0;
+  padding: 3.9rem 0 4.75rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product-page .product-title-container .answer-image-container {
@@ -25,9 +28,7 @@
 .product-page .product-top {
   background: var(--color-bg-dark);
   font-style: normal;
-  font-weight: 900;
   text-align: center;
-  text-transform: uppercase;
   color: var(--color-accent);
 }
 
@@ -35,8 +36,9 @@
   background: var(--color-bg-dark);
 }
 
-.product-page .product-top.vegan-true h1 {
-  color: #f2f2f2;
+.product-page .product-top.vegan-true h1,
+.product-page .product-top.vegan-false h1 {
+  color: #fff;
 }
 
 .product-page .product-top.vegan-true h2 {
@@ -44,16 +46,17 @@
 }
 
 .product-page .product-top h1 {
-  font-size: 14.5rem;
-  font-weight: 900;
-  line-height: 102%;
-  letter-spacing: 0.01em;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 9rem;
+  letter-spacing: 2%;
 }
 
 .product-page .product-top h2 {
-  font-size: 4.1rem;
-  font-weight: bold;
-  line-height: 6.1rem;
+  font-size: 2.23rem;
+  font-weight: 700;
+  line-height: 3.35rem;
+  max-width: 25rem;
 }
 
 .product-page .product-top.vegan-false {
