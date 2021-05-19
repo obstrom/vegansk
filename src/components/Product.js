@@ -165,7 +165,15 @@ function Product(props) {
         </>
       );
     }
-    return <>Simons kod!{/* Simons karusell! */}</>;
+    return (
+      <>
+        <div className="carousel-container">
+          <h4>Populära veganska alternativ</h4>
+          
+          Simons kod!{/* Simons karusell! */}
+        </div>
+      </>
+    );
   };
 
   // Make body-tag (outside React) white for product page
@@ -281,12 +289,14 @@ function Product(props) {
                 Rapportera felaktighet
               </label>
             </div>
-            <RatingWindow
-              productId={productId}
-              productAllReviews={allReviews}
-              productSetAllReviews={setAllReviews}
-              calculateAverageRating={calculateAverageRating}
-            />
+            {productData.vegan && (
+              <RatingWindow
+                productId={productId}
+                productAllReviews={allReviews}
+                productSetAllReviews={setAllReviews}
+                calculateAverageRating={calculateAverageRating}
+              />
+            )}
           </div>
         </div>
       </div>

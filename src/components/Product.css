@@ -353,6 +353,18 @@
   margin-bottom: 0;
 }
 
+.product-page .product-middle .carousel-container {
+  background-color: #ebebeb;
+  padding: 2.6rem 0 2.9rem;
+}
+
+.product-page .product-middle .carousel-container h4 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-left: 2.3rem;
+}
+
 /*.product-page .product-sticky-footer {
     position: fixed;
     left: 0;
