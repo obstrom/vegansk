@@ -12,9 +12,6 @@ import ProductAllReviews from "./ProductAllReviews";
 import { map } from "react-bootstrap/ElementChildren";
 import ProductInfoBox from "./ProductInfoBox";
 
-
-
-
 function Product(props) {
   const getProductIdFromPath = (location) => {
     const splitPath = location.pathname.split("-");
@@ -64,7 +61,7 @@ function Product(props) {
         <h2>Produkten är inte vegansk</h2>
       </>
     );
-  }
+  };
 
   /*const renderVeganThumb = (bool) => {
         if (bool) {
@@ -154,6 +151,23 @@ function Product(props) {
     }
   };
 
+  const productMiddleContent = (bool) => {
+    if (bool) {
+      return (
+        <>
+          <div className="written-reviews-container">
+            <div className="title-reviews">
+              <h5>Kundrecensioner</h5>
+              <span>{`${allReviews.length} recensioner totalt`}</span>
+            </div>
+            <ProductAllReviews reviewData={allReviews} />
+          </div>
+        </>
+      );
+    }
+    return <>Simons kod!{/* Simons karusell! */}</>;
+  };
+
   // Make body-tag (outside React) white for product page
   document.body.style.backgroundColor = "white";
 
@@ -168,14 +182,14 @@ function Product(props) {
           </Link>
           <div className="product-title-container container">
             {productTitleAwnser(productData.vegan)}
-            <ProductInfoBox productData={productData} productAverageReview={calculateAverageRating}/>
+            <ProductInfoBox
+              productData={productData}
+              productAverageReview={calculateAverageRating}
+            />
           </div>
-
         </div>
         <div className="product-info">
           <div className="product-info-container container">
-
-
             <h4 className="product-info-header">Produktinformation</h4>
             <div id="accordion" className="product-info-accordion">
               <div className="card">
@@ -245,37 +259,34 @@ function Product(props) {
               </div>
               {renderProductAllergens(productData.allergens.length)}
             </div>
-
-            <div className="written-reviews-container">
-              <div className="title-reviews">
-                <h5>Kundrecensioner</h5>
-                <span>{`${allReviews.length} recensioner totalt`}</span>
-              </div>
-              <ProductAllReviews reviewData={allReviews} />
+          </div>
+        </div>
+        <div className="product-middle">
+          {productMiddleContent(productData.vegan)}
+        </div>
+        <div className="product-bottom">
+          <div className="rating-container">
+            <div className="feedback-button-container text-center">
+              <button
+                type="image"
+                className="feedback-button"
+                id="report-window-button"
+              >
+                <img src="/images/report-icon.svg" alt="report button" />
+              </button>
+              <label
+                HTMLFor="report-window-button"
+                className="feedback-button-text"
+              >
+                Rapportera felaktighet
+              </label>
             </div>
-            <div className="rating-container">
-              <div className="feedback-button-container text-center">
-                <button
-                  type="image"
-                  className="feedback-button"
-                  id="report-window-button"
-                >
-                  <img src="/images/report-icon.svg" alt="report button" />
-                </button>
-                <label
-                  HTMLFor="report-window-button"
-                  className="feedback-button-text"
-                >
-                  Rapportera felaktighet
-                </label>
-              </div>
-              <RatingWindow
-                productId={productId}
-                productAllReviews={allReviews}
-                productSetAllReviews={setAllReviews}
-                calculateAverageRating={calculateAverageRating}
-              />
-            </div>
+            <RatingWindow
+              productId={productId}
+              productAllReviews={allReviews}
+              productSetAllReviews={setAllReviews}
+              calculateAverageRating={calculateAverageRating}
+            />
           </div>
         </div>
       </div>
