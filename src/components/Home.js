@@ -8,7 +8,7 @@ function Home(props) {
     <>
       <div className="App container d-flex flex-column">
         <div className="title-container">
-          <img src="images/ica.png" className="title-icon" alt="ICA Logo"></img>
+          <img src="images/ica.png" className="title-icon" alt="ICA Logo"/>
           <h1 className="title">
             Är den
             <br />
@@ -16,6 +16,7 @@ function Home(props) {
           </h1>
         </div>
         <StartSearch allProductsList={props.allProducts} />
+
       </div>
       {/*showSearch && <div class="sticky-fade"></div>*/}
     </>
