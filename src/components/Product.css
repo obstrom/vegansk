@@ -62,7 +62,7 @@
 }
 
 .product-page .product-info-box-container {
-    max-width: 30.3rem;
+    width: 33rem;
     background-color: white;
     border-radius: 2rem;
     border: 0.1rem solid #bdbdbd;
@@ -102,9 +102,9 @@
 }
 
 .product-page
-.product-info-box-container
-.product-info-text
-.product-info-rating {
+    .product-info-box-container
+    .product-info-text
+    .product-info-rating {
     margin-top: 0.2rem;
 }
 
@@ -230,10 +230,10 @@
 }
 
 .product-page
-.product-info-accordion
-.card-header
-.collapsed
-.collapse-arrow-wrapper {
+    .product-info-accordion
+    .card-header
+    .collapsed
+    .collapse-arrow-wrapper {
     transform: rotate(0deg);
 }
 
@@ -252,10 +252,10 @@
 }
 
 .product-page
-.product-info-accordion
-.card-body
-.product-ingredients
-.question-icon-wrapper {
+    .product-info-accordion
+    .card-body
+    .product-ingredients
+    .question-icon-wrapper {
     position: absolute;
     left: 0.5rem;
 }
@@ -295,6 +295,10 @@
     background-color: #f5c300;
     box-shadow: 0 0.273973rem 0.273973rem rgba(0, 0, 0, 0.2);
     overflow: visible;
+}
+
+.feedback-button-container img {
+    margin-top: 0.3rem;
 }
 
 .star-icon-container svg {
@@ -365,7 +369,6 @@
     align-items: center;
     width: 100%;
     /*TEMPORARY WIDTH AND MARGIN*/
-
 }
 
 .product-page .product-middle .carousel-container h4 {
@@ -390,34 +393,48 @@
     border: solid 0.01rem #bdbdbd;
     border-radius: 2rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     gap: 3rem;
     color: black;
-    opacity: 0.8;
-
+    /*opacity: 0.8;*/
 }
 
+/*
 .product-page .product-middle .carousel-container .carousel-item:hover {
     opacity: 1;
 }
+*/
 
 .product-page .product-middle .carousel-container .carousel-item h5 {
     font-weight: 700;
     font-size: 1rem;
 }
 
-.product-page .product-middle .carousel-container .carousel-item .carousel-product-image {
+.product-page
+    .product-middle
+    .carousel-container
+    .carousel-item
+    .carousel-product-image {
     height: auto;
     width: 100%;
 }
 
-.product-page .product-middle .carousel-container .carousel-item .bottom-section {
+.product-page
+    .product-middle
+    .carousel-container
+    .carousel-item
+    .bottom-section {
     border-top: solid 0.01rem #bdbdbd;
     box-sizing: border-box;
     text-align: left;
     padding: 1.3rem 1rem;
 }
-.product-page .product-middle .carousel-container .carousel-item .bottom-section .star-icon-container {
+.product-page
+    .product-middle
+    .carousel-container
+    .carousel-item
+    .bottom-section
+    .star-icon-container {
     white-space: nowrap;
 }
 
