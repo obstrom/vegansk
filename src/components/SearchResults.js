@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./SearchResults.css";
 
 const SearchResults = ({ renderData = [] }) => {
     // No results found
@@ -29,11 +30,13 @@ const SearchResults = ({ renderData = [] }) => {
                             id={`result-${product.id}`}
                             className="d-flex search-result-product"
                         >
-                            <img
-                                className="product-image"
-                                src={`images/products/product-${product.id}.jpg`}
-                                alt={`Produkt ${product.producer} - ${product.name}`}
-                            />
+                            <div className="product-image-wrapper">
+                                <img
+                                    className="product-image"
+                                    src={`images/products/product-${product.id}.jpg`}
+                                    alt={`Produkt ${product.producer} - ${product.name}`}
+                                />
+                            </div>
                             <span className="product-name flex-grow-1">
                                 {`${product.producer} - ${product.name}`}
                             </span>
