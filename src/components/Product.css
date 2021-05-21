@@ -62,7 +62,7 @@
 }
 
 .product-page .product-info-box-container {
-    max-width: 33rem;
+    width: 33rem;
     background-color: white;
     border-radius: 2rem;
     border: 0.1rem solid #bdbdbd;
@@ -295,6 +295,10 @@
     background-color: #f5c300;
     box-shadow: 0 0.273973rem 0.273973rem rgba(0, 0, 0, 0.2);
     overflow: visible;
+}
+
+.feedback-button-container img {
+    margin-top: 0.3rem;
 }
 
 .star-icon-container svg {
