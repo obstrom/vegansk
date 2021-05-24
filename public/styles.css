@@ -14,16 +14,36 @@
   font-size: 10px; /* REM-hack dividera alla px med 10 genom hela programmet, alltså: 600px => 60rem*/
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   /* Rectangle 6722 */
   font-family: "Poppins", sans-serif;
-  background: var(--color-bg-dark); /* Mörkgrön */
+  background-color: var(--color-bg-dark); /* Mörkgrön */
+  background-image: none;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-position: left bottom;
+    background-size: 50%;
+    background-image: url("./images/lemon_bg.png");
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    background-size: 75%;
+  }
 }
 
 .App {
   max-width: 60rem;
-  margin-top: 7.6rem;
-  padding: 0 3.6rem;
+  padding: 7.6rem 3.6rem;
 }
 
 .title-container {
