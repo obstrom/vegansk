@@ -453,27 +453,44 @@
     margin: 0 2em;
 }*/
 
-@media screen and (max-width: 500px) {
-    /*.product-page .go-back {
-            left: 25px;
-            top: 25px;
-        }
+@media screen and (min-width: 768px) {
 
-        .product-page .go-back img {
-            width: 11.3px;
-        }*/
+    .product-page {
+        display: flex;
+        background-color: var(--color-bg-dark);
+    }
+    .product-page .product-title-container {
+        padding-top: 0;
+    }
+    .product-page .product-info-container,
+    .product-page .written-reviews-container {
+
+        padding: 0;
+        margin: auto;
+    }
+
+    .product-page .product-info-box-container {
+        margin-top: 0;
+    }
+    .product-page-content {
+        background-color: white;
+        border-radius: 4rem;
+        padding: 4.6rem;
+        margin: 11.5rem 6.6rem 4.6rem 6.6rem;
+        width: 42rem;
+    }
+
+    .answer-image-container, .product-title-container h1, .product-title-container h2  {
+        display: none;
+    }
+
+    .product-page .product-top.vegan-true, .product-page .product-top.vegan-false{
+        background: white;
+    }
+    .product-middle {
+border-top: none;
+        margin-top: 8.9rem;
+    }
 }
 
-@media screen and (max-width: 440px) {
-    /*.product-page .product-info {
-            padding: 0 1.5em;
-        }
 
-        .product-page .product-title-wrapper .vegan-thumb.vegan-true {
-            width: 38px;
-        }
-
-        .product-page .product-title-wrapper .vegan-thumb.vegan-false {
-            width: 47px;
-        }*/
-}

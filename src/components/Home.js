@@ -16,6 +16,8 @@ function Home(props) {
     };
     window.addEventListener("resize", windowWidthChange);
 
+    windowWidthChange()
+
     return (
         <>
             <div className="App container d-flex flex-column">
