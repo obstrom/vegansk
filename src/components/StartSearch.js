@@ -43,6 +43,9 @@ function StartSearch(props) {
         <>
             <div className="input-container text-center">
                 <form>
+
+                    <i className="search-icon"/>
+
                     <input
                         id="search-input"
                         placeholder="Sök produkt ..."

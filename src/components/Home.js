@@ -7,12 +7,11 @@ function Home(props) {
   return (
     <>
       <div className="App container d-flex flex-column">
+        <div className="desktop-title">Vegansk.</div>
         <div className="title-container">
           <img src="images/ica.png" className="title-icon" alt="ICA Logo"/>
           <h1 className="title">
-            Är den
-            <br />
-            vegansk?
+            Är den vegansk?
           </h1>
         </div>
         <StartSearch allProductsList={props.allProducts} />
