@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {useLocation, Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
 import ModalWindow from "./ModalWindow";
@@ -9,7 +9,7 @@ import WrittenReview from "./WrittenReview";
 import "./reviewObject.js";
 import reviewObject from "./reviewObject";
 import ProductAllReviews from "./ProductAllReviews";
-import {map} from "react-bootstrap/ElementChildren";
+import { map } from "react-bootstrap/ElementChildren";
 import ProductInfoBox from "./ProductInfoBox";
 import Carousel from "./Carousel";
 import ScrollingMenu from "./ScrollingMenu";
@@ -48,7 +48,10 @@ function Product(props) {
             return (
                 <>
                     <div className="answer-image-container">
-                        <img className="answer-image" src="/images/happylemon.svg"/>
+                        <img
+                            className="answer-image"
+                            src="/images/happylemon.svg"
+                        />
                     </div>
                     <h1>Hurra!</h1>
                     <h2>Produkten är vegansk</h2>
@@ -58,7 +61,7 @@ function Product(props) {
         return (
             <>
                 <div className="answer-image-container">
-                    <img className="answer-image" src="/images/blueberry.svg"/>
+                    <img className="answer-image" src="/images/blueberry.svg" />
                 </div>
                 <h1>Tyvärr</h1>
                 <h2>Produkten är inte vegansk</h2>
@@ -163,72 +166,84 @@ function Product(props) {
                             <h5>Kundrecensioner</h5>
                             <span>{`${allReviews.length} recensioner totalt`}</span>
                         </div>
-                        <ProductAllReviews reviewData={allReviews}/>
+                        <ProductAllReviews reviewData={allReviews} />
                     </div>
                 </>
             );
         }
         const carouselArray = [
             <Link key={1} to={"/products/product-2"}>
-            <div className="carousel-item active">
-                <div className="carousel-product-image-container">
-                    <img className="carousel-product-image" src="/images/products/product-2.jpg"
-                         alt="Flora växtbaserat"/>
-                </div>
-                <div className="bottom-section">
-                    <h5> {props.productDataAll[1].name}</h5>
-                    <div className="star-icon-container">
-                        <StarRatingProductPage value={3}/>
-                    </div>
-                </div>
-            </div>
-            </Link>,
-
-            <Link key={2} to={"/products/product-5"}>
-             <div className="carousel-item active">
-                <div className="carousel-product-image-container">
-                    <img className="carousel-product-image" src="/images/products/product-5.jpg"
-                         alt="Vegan bredbart"/>
-                </div>
-                <div className="bottom-section">
-                    <h5> {props.productDataAll[4].name}</h5>
-                    <div className="star-icon-container">
-                        <StarRatingProductPage value={2}/>
-                    </div>
-                </div>
-            </div>
-            </Link>
-
-            ,
-            <Link key={3} to={"/products/product-6"}>
-            <div className="carousel-item active">
-                <div className="carousel-product-image-container">
-                    <img className="carousel-product-image" src="/images/products/product-6.jpg"
-                         alt="Ekologiskt vegogott"/>
-                </div>
-                <div className="bottom-section">
-                    <h5> {props.productDataAll[5].name}</h5>
-                    <div className="star-icon-container">
-                        <StarRatingProductPage value={4}/>
-                    </div>
-                </div>
-            </div>
-            </Link>
-
-            , <Link key={4} to={"/products/product-2"}>
                 <div className="carousel-item active">
                     <div className="carousel-product-image-container">
-                        <img className="carousel-product-image" src="/images/products/product-2.jpg"
-                             alt="Flora växtbaserat"/>
+                        <img
+                            className="carousel-product-image"
+                            src="/images/products/product-2.jpg"
+                            alt="Flora växtbaserat"
+                        />
                     </div>
                     <div className="bottom-section">
                         <h5> {props.productDataAll[1].name}</h5>
                         <div className="star-icon-container">
-                            <StarRatingProductPage value={3}/>
+                            <StarRatingProductPage value={3} />
                         </div>
                     </div>
                 </div>
-            </Link>]
+            </Link>,
+
+            <Link key={2} to={"/products/product-5"}>
+                <div className="carousel-item active">
+                    <div className="carousel-product-image-container">
+                        <img
+                            className="carousel-product-image"
+                            src="/images/products/product-5.jpg"
+                            alt="Vegan bredbart"
+                        />
+                    </div>
+                    <div className="bottom-section">
+                        <h5> {props.productDataAll[4].name}</h5>
+                        <div className="star-icon-container">
+                            <StarRatingProductPage value={2} />
+                        </div>
+                    </div>
+                </div>
+            </Link>,
+
+            <Link key={3} to={"/products/product-6"}>
+                <div className="carousel-item active">
+                    <div className="carousel-product-image-container">
+                        <img
+                            className="carousel-product-image"
+                            src="/images/products/product-6.jpg"
+                            alt="Ekologiskt vegogott"
+                        />
+                    </div>
+                    <div className="bottom-section">
+                        <h5> {props.productDataAll[5].name}</h5>
+                        <div className="star-icon-container">
+                            <StarRatingProductPage value={4} />
+                        </div>
+                    </div>
+                </div>
+            </Link>,
+
+            <Link key={4} to={"/products/product-2"}>
+                <div className="carousel-item active">
+                    <div className="carousel-product-image-container">
+                        <img
+                            className="carousel-product-image"
+                            src="/images/products/product-2.jpg"
+                            alt="Flora växtbaserat"
+                        />
+                    </div>
+                    <div className="bottom-section">
+                        <h5> {props.productDataAll[1].name}</h5>
+                        <div className="star-icon-container">
+                            <StarRatingProductPage value={3} />
+                        </div>
+                    </div>
+                </div>
+            </Link>,
+        ];
         return (
             <>
                 <div className="carousel-container">
@@ -236,14 +251,16 @@ function Product(props) {
 
                     {/*<Carousel productDataAll={props.productDataAll} allReviews={allReviews}/>*/}
 
-                    <ScrollBox children={carouselArray}/>
+                    <ScrollBox children={carouselArray} />
                 </div>
             </>
         );
     };
 
-    // Make body-tag (outside React) white for product page
+    // Make body-tag (outside React) white for product page,
+    // and hide background image
     document.body.style.backgroundColor = "white";
+    document.body.style.backgroundImage = "none";
 
     return (
         <div className={`product-page product-${productData.id}`}>
@@ -251,7 +268,10 @@ function Product(props) {
                 <div className={`product-top vegan-${productData.vegan}`}>
                     <Link to="/">
                         <button className="go-back">
-                            <img src="/images/back-arrow.svg" alt="Arrow icon"/>
+                            <img
+                                src="/images/back-arrow.svg"
+                                alt="Arrow icon"
+                            />
                         </button>
                     </Link>
                     <div className="product-title-container container">
@@ -264,7 +284,9 @@ function Product(props) {
                 </div>
                 <div className="product-info">
                     <div className="product-info-container container">
-                        <h4 className="product-info-header">Produktinformation</h4>
+                        <h4 className="product-info-header">
+                            Produktinformation
+                        </h4>
                         <div id="accordion" className="product-info-accordion">
                             <div className="card">
                                 <div className="card-header" id="headingOne">
@@ -331,7 +353,9 @@ function Product(props) {
                                     </div>
                                 </div>
                             </div>
-                            {renderProductAllergens(productData.allergens.length)}
+                            {renderProductAllergens(
+                                productData.allergens.length
+                            )}
                         </div>
                     </div>
                 </div>
@@ -346,7 +370,10 @@ function Product(props) {
                                 className="feedback-button"
                                 id="report-window-button"
                             >
-                                <img src="/images/report-icon.svg" alt="report button"/>
+                                <img
+                                    src="/images/report-icon.svg"
+                                    alt="report button"
+                                />
                             </button>
                             <label
                                 HTMLFor="report-window-button"
