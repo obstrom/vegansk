@@ -263,7 +263,9 @@ function Product(props) {
     document.body.style.backgroundImage = "none";
 
     return (
-        <div className={`product-page product-${productData.id}`}>
+        <div
+            className={`product-page product-${productData.id} vegan-${productData.vegan}`}
+        >
             <div className="product-page-content">
                 <div className={`product-top vegan-${productData.vegan}`}>
                     <Link to="/">
