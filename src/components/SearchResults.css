@@ -36,6 +36,7 @@
     height: var(--img-thumbnail-width);
     display: flex;
     align-items: center;
+    background-color: white;
 }
 
 .search-results span {

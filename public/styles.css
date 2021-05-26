@@ -1,120 +1,189 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --color-bg-dark: #38514b; /* Mörkgrön */
-  --color-bg-light: #eee7d5; /* Ljus sandgrå */
-  --color-bg-danger: #394261; /* Lila bakgrund */
-  --color-text-danger: #ef7878; /* Röd */
-  --color-pure-white: #fff;
-  --color-bg-off-gray: #e6e7ec;
-  /*--color-off-white: #f2f2f2; /* /* Gray 6 */
-  --color-bg-gray: #c4c4c4;
-  --color-gray: #bdbdbd; /* Gray 4 */
-  --color-accent: #f5c300; /* Senapsgul */
-  font-size: 10px; /* REM-hack dividera alla px med 10 genom hela programmet, alltså: 600px => 60rem*/
+    --color-bg-dark: #38514b; /* Mörkgrön */
+    --color-bg-light: #eee7d5; /* Ljus sandgrå */
+    --color-bg-danger: #394261; /* Lila bakgrund */
+    --color-text-danger: #ef7878; /* Röd */
+    --color-pure-white: #fff;
+    --color-bg-off-gray: #e6e7ec;
+    /*--color-off-white: #f2f2f2; /* /* Gray 6 */
+    --color-bg-gray: #c4c4c4;
+    --color-gray: #bdbdbd; /* Gray 4 */
+    --color-accent: #f2c94c; /* Senapsgul */
+    font-size: 10px; /* REM-hack dividera alla px med 10 genom hela programmet, alltså: 600px => 60rem*/
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
-  /* Rectangle 6722 */
-  font-family: "Poppins", sans-serif;
-  background: var(--color-bg-dark); /* Mörkgrön */
+    /* Rectangle 6722 */
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-bg-dark); /* Mörkgrön */
+    background-image: none;
+    background-attachment: fixed;
 }
 
 .App {
-  max-width: 60rem;
-  margin-top: 7.6rem;
-  padding: 0 3.6rem;
+    max-width: 60rem;
+    padding: 7.6rem 3.6rem;
+}
+
+.desktop-title {
+    display: none;
+    position: absolute;
+    font-weight: 900;
+    font-size: 3.2rem;
+    line-height: 4.8rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    top: 3.5rem;
+    left: 6.6rem;
 }
 
 .title-container {
-  text-align: center;
+    text-align: center;
 }
 
 .title-icon {
-  width: 16.2rem;
+    width: 16.2rem;
 }
 
 h1.title {
-  margin-top: 1.8rem;
-  margin-bottom: 9.7rem;
-
-  /* ÄR DEN VEGANSK? */
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 3.16rem;
-  line-height: 3.4rem;
-  color: var(--color-accent);
-  /* Senapsgul */
-}
-
-.input-container.form {
-  display: flex;
-  justify-content: center;
-  align-content: stretch;
-  flex-wrap: wrap;
+    margin: 1.8rem auto 9.7rem;
+    /* ÄR DEN VEGANSK? */
+    width: 18rem;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.16rem;
+    line-height: 3.4rem;
+    color: var(--color-accent);
+    /* Senapsgul */
 }
 
 #search-input {
-  /* Rectangle 6539 */
-  width: 100%;
-  padding: 1.1rem 2.2rem;
-  font-size: 1.2rem;
-  background: var(--color-bg-off-gray);
-  border: none;
-  box-sizing: border-box;
-  border-radius: 2.9rem;
+    /* Rectangle 6539 */
+    max-width: 39.5rem;
+    width: 100%;
+    padding: 1.1rem 2.2rem 1.1rem 5.1rem;
+    font-size: 1.2rem;
+    background: var(--color-bg-off-gray);
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2.9rem;
+    flex-basis: 100%;
+}
+
+.search-icon {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin: 1.3rem;
+    background-image: url("./images/magnifying-glass.svg");
+    position: absolute;
+    z-index: 100;
+
+    background-repeat: no-repeat;
 }
 
 #search-input:focus {
-  outline: none;
+    outline: none;
 }
 
 #search-input::placeholder {
-  color: #000;
-  opacity: 0.8;
+    color: #000;
+    opacity: 0.8;
 }
 
 #search-button {
-  background: var(--color-accent);
-  color: var(--color-bg-dark);
-  padding: 0.4rem 2.2rem;
-  margin-top: 3.4rem;
-  border: none;
-  /*text-transform: uppercase;*/
-  font-weight: 600;
-  font-size: 1.8rem;
+    background: var(--color-accent);
+    color: var(--color-bg-dark);
+    padding: 0.4rem 2.2rem;
+    margin: 3.4rem auto 0 auto;
+    border: none;
+    /*text-transform: uppercase;*/
+    font-weight: 600;
+    font-size: 1.8rem;
+    display: block;
 }
 
 #search-button:hover,
 #search-button:active {
-  filter: brightness(85%);
+    filter: brightness(85%);
 }
 
 #search-input:hover {
-  filter: brightness(95%);
+    filter: brightness(95%);
 }
 
 .info-container {
-  /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
-  margin-top: 7.7rem;
-  font-style: normal;
-  text-align: center;
-  color: var(--color-pure-white);
+    /* Vi vill hjälpa dig! Scanna eller sök efter produkter för att vara säker på om de är veganska eller inte. */
+    margin: 7.7rem auto 0 auto;
+    width: 27rem;
+    font-style: normal;
+    text-align: center;
+    color: var(--color-pure-white);
 }
 
 .info-container h2 {
-  font-size: 2rem;
-  line-height: 3rem;
-  font-weight: 700;
+    font-size: 2rem;
+    line-height: 3rem;
+    font-weight: 700;
 }
 
 .info-container p {
-  font-weight: normal;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
 }
 
+@media screen and (min-width: 768px) {
+    body {
+        background-position: left bottom;
+        background-size: 60%;
+        background-image: url("./images/lemon_bg.png");
+        background-repeat: no-repeat;
+    }
+    .App {
+        max-width: 60rem;
+        padding: 15vh 3.6rem 0 3.6rem;
+    }
+    .desktop-title {
+        display: block;
+    }
+
+    .title-icon {
+        width: 22.65rem;
+    }
+    h1.title {
+        font-size: 4.4rem;
+        line-height: 6.6rem;
+        width: auto;
+        margin: 0 0 6.6rem 0;
+    }
+
+    #search-input {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+
+    #search-button {
+        width: 17.5rem;
+    }
+    .search-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+        margin: 1.5rem;
+    }
+}
+@media screen and (min-width: 1200px) {
+    body {
+        background-size: 60%;
+    }
+}
 /*.sticky-fade {
     position: fixed;
     height: 30vh;
