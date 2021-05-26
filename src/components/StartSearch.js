@@ -10,11 +10,6 @@ function StartSearch(props) {
 
     const searchInputElement = useRef(null);
 
-    // Test kod
-    /*const fetchRatingData = async () => {
-        return await fetch("./api/rating").then((res) => res.json());
-    };*/
-
     const updateFilteredList = async (query) => {
         const filtered = productList.filter((product) => {
             const searchName = product.searchTags.join(" ");
@@ -37,18 +32,6 @@ function StartSearch(props) {
         const inputText = searchInputElement.current.value;
 
         if (inputText) {
-            //Testkod för POST (skicka) ratings//
-            const requestOptions = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title: "Det här är en test!" }),
-            };
-            fetch("/api/rating", requestOptions).then((response) =>
-                response.json()
-            );
-
-            //fetchRatingData();
-
             setShowSearchResults(true);
             updateFilteredList(inputText);
         } else {
@@ -56,17 +39,12 @@ function StartSearch(props) {
         }
     };
 
-    /*useEffect(() => {
-        fetchData();
-    }, []);*/
-
     return (
         <>
             <div className="input-container text-center">
-                <form className="d-flex">
+                <form>
                     <input
                         id="search-input"
-                        className="d-flex"
                         placeholder="Sök produkt ..."
                         type="search"
                         ref={searchInputElement}

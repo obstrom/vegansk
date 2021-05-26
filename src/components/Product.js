@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import {useLocation, Link} from "react-router-dom";
 import createServer from "./ProductList";
 import "./Product.css";
 import ModalWindow from "./ModalWindow";
@@ -9,7 +9,11 @@ import WrittenReview from "./WrittenReview";
 import "./reviewObject.js";
 import reviewObject from "./reviewObject";
 import ProductAllReviews from "./ProductAllReviews";
-import { map } from "react-bootstrap/ElementChildren";
+import {map} from "react-bootstrap/ElementChildren";
+import ProductInfoBox from "./ProductInfoBox";
+import Carousel from "./Carousel";
+import ScrollingMenu from "./ScrollingMenu";
+import ScrollBox from "./ScrollBox";
 
 function Product(props) {
     const getProductIdFromPath = (location) => {
@@ -28,55 +32,59 @@ function Product(props) {
     const [allReviews, setAllReviews] = useState(defaultReviews);
     const [averageRating, setAverageRating] = useState(0);
 
-    function calculateAverageRating(){
-        const ratingArray = []
-        allReviews.forEach(reviewObj=>{
-            ratingArray.push(reviewObj.rating)
-        })
-        const result =  ratingArray.reduce((sum, value)=>{
-            return sum+value;
-        })
-        return (result/ratingArray.length).toFixed(1);
-
-
+    function calculateAverageRating() {
+        const ratingArray = [];
+        allReviews.forEach((reviewObj) => {
+            ratingArray.push(reviewObj.rating);
+        });
+        const result = ratingArray.reduce((sum, value) => {
+            return sum + value;
+        });
+        return (result / ratingArray.length).toFixed(1);
     }
 
     const productTitleAwnser = (bool) => {
         if (bool) {
             return (
                 <>
-                    <h1>Ja</h1>
-                    <h2>Vegansk</h2>
+                    <div className="answer-image-container">
+                        <img className="answer-image" src="/images/happylemon.svg"/>
+                    </div>
+                    <h1>Hurra!</h1>
+                    <h2>Produkten är vegansk</h2>
                 </>
             );
         }
         return (
             <>
-                <h1>Nej</h1>
-                <h2>Ej vegansk</h2>
+                <div className="answer-image-container">
+                    <img className="answer-image" src="/images/blueberry.svg"/>
+                </div>
+                <h1>Tyvärr</h1>
+                <h2>Produkten är inte vegansk</h2>
             </>
         );
     };
 
     /*const renderVeganThumb = (bool) => {
-        if (bool) {
-            return (
-                <img
-                    alt="Vegansk produkt ikon"
-                    className="vegan-thumb vegan-true"
-                    src="/images/vegan-thumbs-up.svg"
-                />
-            );
-        } else {
-            return (
-                <img
-                    alt="Ej-vegansk produkt ikon"
-                    className="vegan-thumb vegan-false"
-                    src="/images/vegan-thumbs-down.svg"
-                />
-            );
-        }
-    };*/
+          if (bool) {
+              return (
+                  <img
+                      alt="Vegansk produkt ikon"
+                      className="vegan-thumb vegan-true"
+                      src="/images/vegan-thumbs-up.svg"
+                  />
+              );
+          } else {
+              return (
+                  <img
+                      alt="Ej-vegansk produkt ikon"
+                      className="vegan-thumb vegan-false"
+                      src="/images/vegan-thumbs-down.svg"
+                  />
+              );
+          }
+      };*/
 
     const renderProductIngredients = () => {
         let list = [];
@@ -146,6 +154,94 @@ function Product(props) {
         }
     };
 
+    const productMiddleContent = (bool) => {
+        if (bool) {
+            return (
+                <>
+                    <div className="written-reviews-container">
+                        <div className="title-reviews">
+                            <h5>Kundrecensioner</h5>
+                            <span>{`${allReviews.length} recensioner totalt`}</span>
+                        </div>
+                        <ProductAllReviews reviewData={allReviews}/>
+                    </div>
+                </>
+            );
+        }
+        const carouselArray = [
+            <Link key={1} to={"/products/product-2"}>
+            <div className="carousel-item active">
+                <div className="carousel-product-image-container">
+                    <img className="carousel-product-image" src="/images/products/product-2.jpg"
+                         alt="Flora växtbaserat"/>
+                </div>
+                <div className="bottom-section">
+                    <h5> {props.productDataAll[1].name}</h5>
+                    <div className="star-icon-container">
+                        <StarRatingProductPage value={3}/>
+                    </div>
+                </div>
+            </div>
+            </Link>,
+
+            <Link key={2} to={"/products/product-5"}>
+             <div className="carousel-item active">
+                <div className="carousel-product-image-container">
+                    <img className="carousel-product-image" src="/images/products/product-5.jpg"
+                         alt="Vegan bredbart"/>
+                </div>
+                <div className="bottom-section">
+                    <h5> {props.productDataAll[4].name}</h5>
+                    <div className="star-icon-container">
+                        <StarRatingProductPage value={2}/>
+                    </div>
+                </div>
+            </div>
+            </Link>
+
+            ,
+            <Link key={3} to={"/products/product-6"}>
+            <div className="carousel-item active">
+                <div className="carousel-product-image-container">
+                    <img className="carousel-product-image" src="/images/products/product-6.jpg"
+                         alt="Ekologiskt vegogott"/>
+                </div>
+                <div className="bottom-section">
+                    <h5> {props.productDataAll[5].name}</h5>
+                    <div className="star-icon-container">
+                        <StarRatingProductPage value={4}/>
+                    </div>
+                </div>
+            </div>
+            </Link>
+
+            , <Link key={4} to={"/products/product-2"}>
+                <div className="carousel-item active">
+                    <div className="carousel-product-image-container">
+                        <img className="carousel-product-image" src="/images/products/product-2.jpg"
+                             alt="Flora växtbaserat"/>
+                    </div>
+                    <div className="bottom-section">
+                        <h5> {props.productDataAll[1].name}</h5>
+                        <div className="star-icon-container">
+                            <StarRatingProductPage value={3}/>
+                        </div>
+                    </div>
+                </div>
+            </Link>]
+        return (
+            <>
+                <div className="carousel-container">
+                    <h4>Populära veganska alternativ</h4>
+
+                    {/*<Carousel productDataAll={props.productDataAll} allReviews={allReviews}/>*/}
+
+                    <ScrollBox children={carouselArray}/>
+                </div>
+            </>
+        );
+    };
+
     // Make body-tag (outside React) white for product page
     document.body.style.backgroundColor = "white";
 
@@ -155,36 +251,20 @@ function Product(props) {
                 <div className={`product-top vegan-${productData.vegan}`}>
                     <Link to="/">
                         <button className="go-back">
-                            <img
-                                src="/images/back-arrow.svg"
-                                alt="Arrow icon"
-                            />
+                            <img src="/images/back-arrow.svg" alt="Arrow icon"/>
                         </button>
                     </Link>
                     <div className="product-title-container container">
                         {productTitleAwnser(productData.vegan)}
+                        <ProductInfoBox
+                            productData={productData}
+                            productAverageReview={calculateAverageRating}
+                        />
                     </div>
                 </div>
                 <div className="product-info">
                     <div className="product-info-container container">
-                        <div className="product-image-section d-flex">
-                            <div className="product-image-container">
-                                <div className="product-image-wrapper d-flex">
-                                    <img
-                                        className="img-fluid"
-                                        src={`/images/products/product-${productData.id}.jpg`}
-                                        alt={`Product image of ${productData.name}`}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="product-title-wrapper d-flex">
-                            <h3 className="product-title">{`${productData.name}`}</h3>
-                            {/*renderVeganThumb(productData.vegan)*/}
-                        </div>
-                        <h4 className="product-info-header">
-                            Produktinformation
-                        </h4>
+                        <h4 className="product-info-header">Produktinformation</h4>
                         <div id="accordion" className="product-info-accordion">
                             <div className="card">
                                 <div className="card-header" id="headingOne">
@@ -251,32 +331,38 @@ function Product(props) {
                                     </div>
                                 </div>
                             </div>
-                            {renderProductAllergens(
-                                productData.allergens.length
-                            )}
+                            {renderProductAllergens(productData.allergens.length)}
                         </div>
-
-                        <div className="product-report-wrapper">
-                            <a href="#">Rapportera felaktighet</a>
+                    </div>
+                </div>
+                <div className="product-middle">
+                    {productMiddleContent(productData.vegan)}
+                </div>
+                <div className="product-bottom">
+                    <div className="rating-container">
+                        <div className="feedback-button-container text-center">
+                            <button
+                                type="image"
+                                className="feedback-button"
+                                id="report-window-button"
+                            >
+                                <img src="/images/report-icon.svg" alt="report button"/>
+                            </button>
+                            <label
+                                HTMLFor="report-window-button"
+                                className="feedback-button-text"
+                            >
+                                Rapportera felaktighet
+                            </label>
                         </div>
-                        {/* FIXA: Data vi skickar in i StarRatingProductPage är hårdkodat */}
-                        <StarRatingProductPage value={
-                            calculateAverageRating()
-                        } />
-                        <div className="rating-container text-center">
+                        {productData.vegan && (
                             <RatingWindow
                                 productId={productId}
                                 productAllReviews={allReviews}
                                 productSetAllReviews={setAllReviews}
+                                calculateAverageRating={calculateAverageRating}
                             />
-                        </div>
-                        <div className="written-reviews-container">
-                            <div className="title-reviews">
-                                <h5>Kundrecensioner</h5>
-                                <span>{`${allReviews.length} recensioner totalt`}</span>
-                            </div>
-                            <ProductAllReviews reviewData={allReviews} />
-                        </div>
+                        )}
                     </div>
                 </div>
             </div>
