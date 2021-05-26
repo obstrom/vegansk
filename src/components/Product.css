@@ -108,9 +108,9 @@
 }
 
 .product-page
-    .product-info-box-container
-    .product-info-text
-    .product-info-rating {
+.product-info-box-container
+.product-info-text
+.product-info-rating {
     margin-top: 0.2rem;
 }
 
@@ -126,8 +126,11 @@
 }
 
 .product-page .reviews-scroll-container {
-    max-height: 14.3rem;
+    max-height: 15rem;
     overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+
 }
 
 .product-page .product-image-container {
@@ -241,10 +244,10 @@
 }
 
 .product-page
-    .product-info-accordion
-    .card-header
-    .collapsed
-    .collapse-arrow-wrapper {
+.product-info-accordion
+.card-header
+.collapsed
+.collapse-arrow-wrapper {
     transform: rotate(0deg);
 }
 
@@ -263,10 +266,10 @@
 }
 
 .product-page
-    .product-info-accordion
-    .card-body
-    .product-ingredients
-    .question-icon-wrapper {
+.product-info-accordion
+.card-body
+.product-ingredients
+.question-icon-wrapper {
     position: absolute;
     left: 0.5rem;
 }
@@ -422,31 +425,62 @@
 }
 
 .product-page
-    .product-middle
-    .carousel-container
-    .carousel-item
-    .carousel-product-image {
+.product-middle
+.carousel-container
+.carousel-item
+.carousel-product-image {
     height: auto;
     width: 100%;
 }
 
 .product-page
-    .product-middle
-    .carousel-container
-    .carousel-item
-    .bottom-section {
+.product-middle
+.carousel-container
+.carousel-item
+.bottom-section {
     border-top: solid 0.01rem #bdbdbd;
     box-sizing: border-box;
     text-align: left;
     padding: 1.3rem 1rem;
 }
+
 .product-page
-    .product-middle
-    .carousel-container
-    .carousel-item
-    .bottom-section
-    .star-icon-container {
+.product-middle
+.carousel-container
+.carousel-item
+.bottom-section
+.star-icon-container {
     white-space: nowrap;
+}
+
+
+.ingredient-modal .modal-content {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+.ingredient-modal .modal-content h4 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.ingredient-modal .modal-header .close {
+    font-size: 2rem;
+    padding: 0;
+}
+
+.ingredient-modal .modal-content .btn {
+    display: none;
+}
+
+.modal-body {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 /*.product-page .product-sticky-footer {
@@ -516,12 +550,14 @@
     .product-page .product-title-container {
         padding-top: 0;
     }
+
     .product-page .product-info-container,
     .product-page .written-reviews-container {
         padding: 0;
         margin: auto;
         padding: 0 4.6rem;
     }
+
     .product-page .product-info-box-container {
         margin-top: 4.6rem;
     }
@@ -536,6 +572,7 @@
     .product-page .product-top.vegan-false {
         background: none;
     }
+
     .product-middle {
         border-top: none;
         margin-top: 5.8rem;
