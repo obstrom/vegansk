@@ -2,8 +2,10 @@
 
 :root {
     --color-bg-dark: #38514b; /* Mörkgrön */
+    --color-bg-lightgreen: #4f6c65; /*Ljusgrön desktop bakgrund*/
     --color-bg-light: #eee7d5; /* Ljus sandgrå */
     --color-bg-danger: #394261; /* Lila bakgrund */
+    --color-bg-darkpurple: #2b324a;/*Mörklila navbar*/
     --color-text-danger: #ef7878; /* Röd */
     --color-pure-white: #fff;
     --color-bg-off-gray: #e6e7ec;
