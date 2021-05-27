@@ -1,152 +1,177 @@
 :root {
-    --rating-window-bg-color: #f2f2f2;
-    --rating-window-separator-color: #bdbdbd;
-    --rating-window-validation-error-text-color: #ef7878;
-    --rating-window-text-color-dark-grey: #272727;
-    --rating-window-color-dark-green: #38514b;
-    --rating-window-color-thank-you: #4f6c65;
-    --rating-window-color-yellow: #f5c300;
+  --rating-window-bg-color: #f2f2f2;
+  --rating-window-separator-color: #bdbdbd;
+  --rating-window-validation-error-text-color: #ef7878;
+  --rating-window-text-color-dark-grey: #272727;
+  --rating-window-color-dark-green: #38514b;
+  --rating-window-color-thank-you: #4f6c65;
+  --rating-window-color-yellow: #f5c300;
 }
 
 .feedback-button-text {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    display: block;
-    padding-top: 0.7rem;
-    width: 7.5rem;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  display: block;
+  padding-top: 0.7rem;
+  width: 7.5rem;
 }
 
 .rating-modal .modal-content {
-    background-color: var(--rating-window-bg-color);
-    box-shadow: 0.2rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  background-color: var(--rating-window-bg-color);
+  box-shadow: 0.2rem 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 }
 
 .rating-modal .close {
-    display: none;
+  display: none;
 }
 
 .rating-modal-header {
-    padding: 3.5rem 4rem 2rem;
-    border: none;
+  padding: 3.5rem 4rem 2rem;
+  border: none;
 }
 
 .rating-modal-header .modal-title {
-    font-weight: bold;
-    font-size: 2.2rem;
+  font-weight: bold;
+  font-size: 2.2rem;
 }
 
 .rating-modal .star-container {
-    border-top: 0.1rem solid var(--rating-window-separator-color);
-    border-bottom: 0.1rem solid var(--rating-window-separator-color);
-    padding: 1.1rem 4rem;
+  border-top: 0.1rem solid var(--rating-window-separator-color);
+  border-bottom: 0.1rem solid var(--rating-window-separator-color);
+  padding: 1.1rem 4rem;
 }
 
 .rating-modal .modal-body {
-    padding: 0;
+  padding: 0;
 }
 
 .rating-modal .widget-svg {
-    width: 2.9rem;
-    height: 2.9rem;
+  width: 2.9rem;
+  height: 2.9rem;
 }
 
 .rating-modal .rating-number {
-    font-size: 1rem;
-    font-weight: normal;
-    color: var(--rating-window-text-color-dark-grey);
-    margin-left: 1.7rem;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--rating-window-text-color-dark-grey);
+  margin-left: 1.7rem;
 }
 
 .rating-modal .validation-failure {
-    color: var(--rating-window-validation-error-text-color);
+  color: var(--rating-window-validation-error-text-color);
 }
 
 .rating-modal .review-container {
-    padding: 1.1rem 4rem;
+  padding: 1.1rem 4rem;
 }
 
 .rating-modal label {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .rating-modal .name-label {
-    margin-top: 1.1rem;
+  margin-top: 1.1rem;
 }
 
 .rating-modal .review-textarea,
 .rating-modal .review-input {
-    width: 100%;
-    border: 0.1rem solid var(--rating-window-separator-color);
-    background-color: #fff;
-    color: var(--rating-window-text-color-dark-grey);
-    border-radius: 0.4rem;
-    padding: 1rem 1.4rem;
-    display: block;
-    font-size: 1.2rem;
+  width: 100%;
+  border: 0.1rem solid var(--rating-window-separator-color);
+  background-color: #fff;
+  color: var(--rating-window-text-color-dark-grey);
+  border-radius: 0.4rem;
+  padding: 1rem 1.4rem;
+  display: block;
+  font-size: 1.2rem;
 }
 
 .rating-modal .review-textarea {
-    height: 11.4rem;
-    resize: none;
+  height: 11.4rem;
+  resize: none;
 }
 
 .rating-modal .review-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .rating-modal .review-character-count {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 0.5rem;
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
 }
 
 .rating-modal .disclaimer {
-    text-align: center;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
-    margin-top: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .rating-modal .button-container {
-    font-size: 1.3rem;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 3rem 0 3.8rem;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem 0 3.8rem;
 }
 .rating-modal .button-container button {
-    display: block;
-    width: 18.5rem;
-    align-self: center;
-    color: var(--rating-window-text-color-dark-green);
-    border: none;
-    border-radius: 0;
-    font-weight: 600;
-    padding: 1rem 0;
+  display: block;
+  width: 18.5rem;
+  align-self: center;
+  color: var(--rating-window-text-color-dark-green);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  padding: 1rem 0;
 }
 
 .rating-modal #send-button,
-#close-button {
+.rating-modal #close-button {
     background-color: var(--rating-window-color-yellow);
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
 .rating-modal #abort-button {
     background: none;
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
-.thank-you-state {
-    min-height: 55rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.rating-modal .modal-content .thank-you-state {
+  /* Ciccis försök att göra hela modalrutan grön*/
+  min-height: 55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-bg-dark);
 }
 
 .thank-you-state .thank-you-text {
-    color: var(--rating-window-color-thank-you);
-    font-weight: bold;
-    font-size: 2.2rem;
-    line-height: 3.3rem;
+  color: var(--color-pure-white);
+  font-weight: bold;
+  font-size: 6rem;
+  line-height: 8.9rem;
+}
+
+.thank-you-state .thank-you-text-info {
+  color: var(--color-accent);
+  max-width: 20.1rem;
+  font-weight: bold;
+  font-size: 2.2rem;
+  line-height: 3.4rem;
+  /* text-align: center;*/
+  margin-left: 7.4rem;
+  letter-spacing: 0.02em; /* Cicci: Ska vi ha kvar denna rad? Kopierat från Figma*/
+}
+
+.thank-you-state .button-container #close-button {
+  background-color: var(--color-accent);
+  color: var(--color-bg-dark);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
 }
