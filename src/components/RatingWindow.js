@@ -189,8 +189,11 @@ export default function RatingWindow(props) {
           <div className={`thank-you-state ${displayThankYouState}`}>
             <div></div>
             <div className="text-center">
-              <p className="thank-you-text">Tack för din hjälp!</p>
-              <img src="/images/lemon.svg" />
+              <img src="/images/happylemon.svg" />
+              <p className="thank-you-text">Tack!</p>
+              <p className="thank-you-text-info">
+                Din åsikt hjälper andra att välja rätt!
+              </p>
             </div>
             <div className="button-container">
               <Button id="close-button" variant="primary" onClick={handleClose}>
