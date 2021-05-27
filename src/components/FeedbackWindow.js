@@ -1,14 +1,57 @@
 import { Modal, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import StarRatingModal from "./StarRatingModal";
 import "./RatingWindow.css";
+import "./FeedbackWindow.css";
 import reviewObject from "./reviewObject";
 
-export default function FeedbackWindow(props) {
-  const [show, setShow] = useState(false);
+function FeedBackCheckbox(props) {
+  const handleCheckbox = () => {
+    let validCheck = false;
+    console.log(props.feedbackForm.current);
+    const formData = props.feedbackForm.current;
+    for (let i = 0; i < formData.length; i++) {
+      if (formData[i].type === "checkbox") {
+        if (formData[i].checked) {
+          props.setAnyChecked(true);
+          validCheck = true;
+        }
+      }
+    }
+    if (!validCheck) {
+      props.setAnyChecked(false);
+      console.log("knappen grå");
+    }
+  };
+  return (
+    <div className="checkbox-container">
+      <label htmlFor={`checkbox-${props.key}`}>{props.label}</label>
+      <input
+        onChange={handleCheckbox}
+        id={`checkbox-${props.key}`}
+        type="checkbox"
+      />
+    </div>
+  );
+}
 
+export default function FeedbackWindow(props) {
+  const [anyChecked, setAnyChecked] = useState(false);
+  const [show, setShow] = useState(false);
+  const feedbackForm = useRef(null);
   const [displayNormalState, setDisplayNormalState] = useState("");
   const [displayThankYouState, setDisplayThankYouState] = useState("d-none");
+  const sendButton = useRef(null);
+
+  function enableButton(enable) {
+    if (sendButton.current != null) {
+      sendButton.current.disabled = !enable;
+    }
+  }
+
+  useEffect(() => {
+    enableButton(anyChecked);
+  }, [anyChecked]);
 
   const handleClose = () => {
     setShow(false);
@@ -30,6 +73,10 @@ export default function FeedbackWindow(props) {
     }
   }
 
+  const handleAccordionButton = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className="feedback-button-container text-center">
@@ -46,14 +93,21 @@ export default function FeedbackWindow(props) {
           Rapportera felaktighet
         </label>
       </div>
-      <Modal className={"rating-modal"} show={show} onHide={handleClose}>
+      <Modal
+        className={"rating-modal feedback-modal"}
+        show={show}
+        onHide={handleClose}
+      >
         <Modal.Header className={"rating-modal-header"} closeButton>
           <Modal.Title className={displayNormalState}>
             Hjälp oss bli bättre!
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className={"rating-modal-body"}>
-          <form className={`rating-form ${displayNormalState}`}>
+          <form
+            ref={feedbackForm}
+            className={`rating-form ${displayNormalState}`}
+          >
             <div className="review-container">
               <div id="accordion" className="product-info-accordion">
                 <div className="card">
@@ -62,9 +116,10 @@ export default function FeedbackWindow(props) {
                       <button
                         className="btn btn-link collapsed"
                         data-toggle="collapse"
-                        data-target="#collapseOne"
+                        data-target="#feedbackOne"
                         aria-expanded="true"
                         aria-controls="collapseOne"
+                        onClick={handleAccordionButton}
                       >
                         En produkt har felaktig information
                         <div className="collapse-arrow-wrapper">
@@ -79,13 +134,42 @@ export default function FeedbackWindow(props) {
                   </div>
 
                   <div
-                    id="collapseOne"
+                    id="feedbackOne"
                     className="collapse"
                     aria-labelledby="headingOne"
                     data-parent="#accordion"
                   >
                     <div className="card-body product-ingredients">
-                      Checkboxes
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={1}
+                        label="Allergener är missvisande"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={2}
+                        label="Felaktiga ingredienser"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={3}
+                        label="Missvisande varumärkesinformation"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={4}
+                        label="Produkten är inte vegansk"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={5}
+                        label="E-ämnen är felaktiga"
+                      />
                     </div>
                   </div>
                 </div>
@@ -95,9 +179,10 @@ export default function FeedbackWindow(props) {
                       <button
                         className="btn btn-link collapsed"
                         data-toggle="collapse"
-                        data-target="#collapseTwo"
+                        data-target="#feedbackTwo"
                         aria-expanded="false"
                         aria-controls="collapseTwo"
+                        onClick={handleAccordionButton}
                       >
                         Ett fel på tjänsten
                         <div className="collapse-arrow-wrapper">
@@ -111,13 +196,42 @@ export default function FeedbackWindow(props) {
                     </h5>
                   </div>
                   <div
-                    id="collapseTwo"
+                    id="feedbackTwo"
                     className="collapse"
                     aria-labelledby="headingTwo"
                     data-parent="#accordion"
                   >
                     <div className="card-body product-about">
-                      <p>Checkboxes tjänstefel</p>
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={1}
+                        label="Allergener är missvisande"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={2}
+                        label="Felaktiga ingredienser"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={3}
+                        label="Missvisande varumärkesinformation"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={4}
+                        label="Produkten är inte vegansk"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={5}
+                        label="E-ämnen är felaktiga"
+                      />
                     </div>
                   </div>
                 </div>
@@ -127,9 +241,10 @@ export default function FeedbackWindow(props) {
                       <button
                         className="btn btn-link collapsed"
                         data-toggle="collapse"
-                        data-target="#collapseThree"
+                        data-target="#feedbackThree"
                         aria-expanded="false"
                         aria-controls="collapseThree"
+                        onClick={handleAccordionButton}
                       >
                         Information saknas
                         <div className="collapse-arrow-wrapper">
@@ -143,13 +258,42 @@ export default function FeedbackWindow(props) {
                     </h5>
                   </div>
                   <div
-                    id="collapseThree"
+                    id="feedbackThree"
                     className="collapse"
                     aria-labelledby="headingThree"
                     data-parent="#accordion"
                   >
                     <div className="card-body product-allergens">
-                      <p>Checkboxes information saknas</p>
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={1}
+                        label="Allergener är missvisande"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={2}
+                        label="Felaktiga ingredienser"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={3}
+                        label="Missvisande varumärkesinformation"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={4}
+                        label="Produkten är inte vegansk"
+                      />
+                      <FeedBackCheckbox
+                        feedbackForm={feedbackForm}
+                        setAnyChecked={setAnyChecked}
+                        key={5}
+                        label="E-ämnen är felaktiga"
+                      />
                     </div>
                   </div>
                 </div>
@@ -157,6 +301,7 @@ export default function FeedbackWindow(props) {
             </div>
             <div className="button-container">
               <Button
+                ref={sendButton}
                 id="send-button"
                 variant="primary"
                 onClick={handleFormSubmit}
