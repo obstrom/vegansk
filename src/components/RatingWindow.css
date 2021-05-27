@@ -129,12 +129,16 @@
 }
 
 .rating-modal #send-button,
-#close-button {
+.rating-modal #close-button {
     background-color: var(--rating-window-color-yellow);
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
 .rating-modal #abort-button {
     background: none;
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
 .thank-you-state {
