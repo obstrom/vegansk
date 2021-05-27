@@ -565,9 +565,18 @@
         text-decoration: none;
     }
 
+    .product-page .product-page-navbar .search-container form {
+        width: 30.3rem;
+    }
+
     .product-page .product-page-navbar .search-container {
         display: flex;
     }
+
+    .product-page .product-page-navbar .search-container .search-icon {
+        margin: 1rem 1.5rem;
+    }
+
     .product-page .product-page-navbar .search-container #search-input {
         font-size: 1.07rem;
         line-height: 1.6rem;
