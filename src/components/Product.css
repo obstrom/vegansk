@@ -493,7 +493,13 @@
 .product-page .product-sticky-footer button {
     margin: 0 2em;
 }*/
+.product-page .product-page-navbar .search-container {
+  display: none;
 
+}
+.breadcrumbs-container{
+  display: none;
+}
 @media screen and (min-width: 768px) {
   .product-page {
     display: flex;
@@ -506,7 +512,10 @@
     position: absolute;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
+
+
 
   .product-page.vegan-true .product-page-navbar {
     background-color: var(--color-bg-dark);
@@ -530,19 +539,57 @@
     margin-left: 4.8rem;
   }
 
+
   .product-page.vegan-false .desktop-title {
     color: var(--color-text-danger);
   }
 
   .product-page-navbar > a {
     display: flex;
+    text-decoration: none;
+
+  }
+
+  .product-page .product-page-navbar .search-container {
+    display: flex;
+
+  }
+  .product-page .product-page-navbar .search-container #search-input{
+    font-size: 1.07rem;
+    line-height: 1.6rem;
+  }
+
+  .product-page .product-page-navbar .search-container .burger-button {
+    background: none;
+    border: none;
+    margin: 0 3.5rem;
+  }
+
+  .product-page .breadcrumbs-container, .product-page .breadcrumbs-container a {
+    display: initial;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 15px;
+    color: white;
+  }
+  .product-page .breadcrumbs-container span {
+    margin-right: 0.5rem;
+  }
+  .product-page .breadcrumbs-container #search-result {
+    font-weight: normal;
+  }
+
+  .product-page-content-wrapper{
+    margin: 11.5rem 6.6rem 4.6rem 6.6rem;
+    width: 42rem;
   }
 
   .product-page-content {
     background-color: white;
     border-radius: 4rem;
-    margin: 11.5rem 6.6rem 4.6rem 6.6rem;
-    width: 42rem;
+    margin-top: 4.4rem;
+
+
   }
 
   .product-page.vegan-true {
