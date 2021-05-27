@@ -4,7 +4,7 @@
     --rating-window-validation-error-text-color: #ef7878;
     --rating-window-text-color-dark-grey: #272727;
     --rating-window-color-dark-green: #38514b;
-    --rating-window-color-thank-you: #4f6c65;
+    --rating-window-color-thank-you: #070808;
     --rating-window-color-yellow: #f5c300;
 }
 
@@ -53,7 +53,7 @@
 .rating-modal .rating-number {
     font-size: 1rem;
     font-weight: normal;
-    color: var(--rating-window-text-color-dark-grey);
+    color: var(--rating-window-color-dark-green);
     margin-left: 1.7rem;
 }
 
@@ -121,7 +121,7 @@
     display: block;
     width: 18.5rem;
     align-self: center;
-    color: var(--rating-window-text-color-dark-green);
+    color: var(--rating-window-color-dark-green);
     border: none;
     border-radius: 0;
     font-weight: 600;
@@ -129,24 +129,53 @@
 }
 
 .rating-modal #send-button,
-#close-button {
+.rating-modal #close-button {
     background-color: var(--rating-window-color-yellow);
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
 .rating-modal #abort-button {
     background: none;
+    font-size: 1.3rem;
+    line-height: 1.95rem;
 }
 
-.thank-you-state {
-    min-height: 55rem;
+.rating-modal .modal-content .thank-you-state {
+    /* Ciccis försök att göra hela modalrutan grön*/
+    padding-top: 10.8rem;
+    min-height: 63.3rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: var(--color-bg-dark);
+}
+
+.rating-modal .rating-modal-header.thank-you-state-true {
+    display: none;
 }
 
 .thank-you-state .thank-you-text {
-    color: var(--rating-window-color-thank-you);
+    color: var(--color-pure-white);
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 8.9rem;
+}
+
+.thank-you-state .thank-you-text-info {
+    color: var(--color-accent);
+    max-width: 20.1rem;
     font-weight: bold;
     font-size: 2.2rem;
-    line-height: 3.3rem;
+    line-height: 3.4rem;
+    margin: 0 auto;
+    letter-spacing: 0.02em; /* Cicci: Ska vi ha kvar denna rad? Kopierat från Figma*/
+}
+
+.thank-you-state .button-container #close-button {
+    background-color: var(--color-accent);
+    color: var(--color-bg-dark);
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
 }

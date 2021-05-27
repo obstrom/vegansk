@@ -4,8 +4,8 @@
 
 .product-page .go-back {
     border: none;
-    background: none;
     position: absolute;
+    background: none;
     display: flex;
     left: 3.4rem;
     top: 2.15rem;
@@ -13,6 +13,10 @@
 
 .product-page .go-back img {
     width: 1.14rem;
+}
+
+.product-page-content-desktop {
+    display: none;
 }
 
 .product-page .product-title-container {
@@ -42,14 +46,16 @@
     color: var(--color-accent);
 }
 
-.product-page .product-top h1 {
+.product-page .product-top h1,
+.product-page .product-page-content-desktop h1 {
     font-size: 6rem;
     font-weight: 700;
     line-height: 9rem;
     letter-spacing: 0.02em;
 }
 
-.product-page .product-top h2 {
+.product-page .product-top h2,
+.product-page .product-page-content-desktop h2 {
     font-size: 2.23rem;
     font-weight: 700;
     line-height: 3.35rem;
@@ -119,6 +125,13 @@
     margin: auto;
 }
 
+.product-page .reviews-scroll-container {
+    max-height: 15rem;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .product-page .product-image-container {
     width: 60%;
     padding-bottom: 60%;
@@ -172,11 +185,13 @@
     margin-top: 2.9rem;
 }
 
-.product-page .product-info-accordion {
+.product-page .product-info-accordion,
+.feedback-modal .product-info-accordion {
     border-bottom: solid 0.1rem var(--separator-border-color);
 }
 
-.product-page .product-info-accordion .card {
+.product-page .product-info-accordion .card,
+.feedback-modal .product-info-accordion .card {
     border-radius: 0;
     border: none;
     outline: none;
@@ -194,12 +209,14 @@
     outline: none;
 }
 
-.product-page .product-info-accordion .card-header {
+.product-page .product-info-accordion .card-header,
+.feedback-modal .product-info-accordion .card-header {
     padding: 0;
     border-bottom: none;
 }
 
-.product-page .product-info-accordion .card-header .btn {
+.product-page .product-info-accordion .card-header .btn,
+.feedback-modal .product-info-accordion .card-header .btn {
     padding: 1.4rem 0;
     color: #000;
     width: 100%;
@@ -217,12 +234,15 @@
 }
 
 .product-page .product-info-accordion .card-header .btn:hover,
-.product-page .product-info-accordion .card-header .btn:focus {
+.product-page .product-info-accordion .card-header .btn:focus,
+.feedback-modal .product-info-accordion .card-header .btn:hover,
+.feedback-modal .product-info-accordion .card-header .btn:focus {
     color: #000;
     text-decoration: none;
 }
 
-.product-page .product-info-accordion .card-header .collapse-arrow-wrapper {
+.product-page .product-info-accordion .card-header .collapse-arrow-wrapper,
+.feedback-modal .product-info-accordion .card-header .collapse-arrow-wrapper {
     display: inline;
     position: absolute;
     right: 1.5rem;
@@ -233,11 +253,17 @@
     .product-info-accordion
     .card-header
     .collapsed
+    .collapse-arrow-wrapper,
+.feedback-modal
+    .product-info-accordion
+    .card-header
+    .collapsed
     .collapse-arrow-wrapper {
     transform: rotate(0deg);
 }
 
-.product-page .product-info-accordion .card-body {
+.product-page .product-info-accordion .card-body,
+.feedback-modal .product-info-accordion .card-body {
     padding: 0 2.6rem 1rem 2.6rem;
     font-weight: 400;
     font-style: normal;
@@ -245,7 +271,8 @@
     line-height: 1.8rem;
 }
 
-.product-page .product-info-accordion .card-body .product-ingredients {
+.product-page .product-info-accordion .card-body .product-ingredients,
+.feedback-modal .product-info-accordion .card-body .product-ingredients {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -255,12 +282,18 @@
     .product-info-accordion
     .card-body
     .product-ingredients
+    .question-icon-wrapper,
+.feedback-modal
+    .product-info-accordion
+    .card-body
+    .product-ingredients
     .question-icon-wrapper {
     position: absolute;
     left: 0.5rem;
 }
 
-.product-page .product-info-accordion .card-body .special-ingredient p {
+.product-page .product-info-accordion .card-body .special-ingredient p,
+.feedback-modal .product-info-accordion .card-body .special-ingredient p {
     margin: 0;
 }
 
@@ -326,7 +359,7 @@
 }
 
 .written-reviews-container .title-reviews h5 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 1.8rem;
     margin-bottom: 0;
     text-align: left;
@@ -429,6 +462,7 @@
     text-align: left;
     padding: 1.3rem 1rem;
 }
+
 .product-page
     .product-middle
     .carousel-container
@@ -436,6 +470,35 @@
     .bottom-section
     .star-icon-container {
     white-space: nowrap;
+}
+
+.ingredient-modal .modal-content {
+    background: #ffffff;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 20px;
+    max-width: 30rem;
+    padding: 2rem;
+}
+
+.ingredient-modal .modal-content h4 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.ingredient-modal .modal-header .close {
+    font-size: 2rem;
+    padding: 0;
+}
+
+.ingredient-modal .modal-content .btn {
+    display: none;
+}
+
+.modal-body {
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 /*.product-page .product-sticky-footer {
@@ -450,28 +513,177 @@
 .product-page .product-sticky-footer button {
     margin: 0 2em;
 }*/
-
-@media screen and (max-width: 500px) {
-    /*.product-page .go-back {
-            left: 25px;
-            top: 25px;
-        }
-
-        .product-page .go-back img {
-            width: 11.3px;
-        }*/
+.product-page .product-page-navbar .search-container {
+    display: none;
 }
+.breadcrumbs-container {
+    display: none;
+}
+@media screen and (min-width: 768px) {
+    .product-page {
+        display: flex;
+        min-height: 100vh;
+    }
 
-@media screen and (max-width: 440px) {
-    /*.product-page .product-info {
-            padding: 0 1.5em;
-        }
+    .product-page-navbar {
+        width: 100%;
+        height: 7.6rem;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-        .product-page .product-title-wrapper .vegan-thumb.vegan-true {
-            width: 38px;
-        }
+    .product-page.vegan-true .product-page-navbar {
+        background-color: var(--color-bg-dark);
+    }
 
-        .product-page .product-title-wrapper .vegan-thumb.vegan-false {
-            width: 47px;
-        }*/
+    .product-page.vegan-false .product-page-navbar {
+        background-color: var(--color-bg-darkpurple);
+    }
+
+    .product-page .go-back {
+        position: initial;
+        margin-left: 4.5rem;
+    }
+
+    .product-page .go-back img {
+        margin: auto;
+    }
+
+    .product-page .desktop-title {
+        position: initial;
+        margin-left: 4.8rem;
+    }
+
+    .product-page.vegan-false .desktop-title {
+        color: var(--color-text-danger);
+    }
+
+    .product-page-navbar > a {
+        display: flex;
+        text-decoration: none;
+    }
+
+    .product-page .product-page-navbar .search-container form {
+        width: 30.3rem;
+    }
+
+    .product-page .product-page-navbar .search-container {
+        display: flex;
+    }
+
+    .product-page .product-page-navbar .search-container .search-icon {
+        margin: 1rem 1.5rem;
+    }
+
+    .product-page .product-page-navbar .search-container #search-input {
+        font-size: 1.07rem;
+        line-height: 1.6rem;
+    }
+
+    .product-page .product-page-navbar .search-container .burger-button {
+        background: none;
+        border: none;
+        margin: 0 3.5rem;
+    }
+
+    .product-page .breadcrumbs-container,
+    .product-page .breadcrumbs-container a {
+        display: initial;
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 15px;
+        color: white;
+    }
+    .product-page .breadcrumbs-container span {
+        margin-right: 0.5rem;
+    }
+    .product-page .breadcrumbs-container #search-result {
+        font-weight: normal;
+    }
+
+    .product-page-content-wrapper {
+        margin: 11.5rem 6.6rem 4.6rem 6.6rem;
+        width: 42rem;
+    }
+
+    .product-page-content {
+        background-color: white;
+        border-radius: 4rem;
+        margin-top: 4.4rem;
+    }
+
+    .product-page.vegan-true {
+        background-color: var(--color-bg-lightgreen);
+        background-image: url("./images/product-page_lemon_bg.png");
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+
+    .product-page.vegan-false {
+        background-color: var(--color-bg-danger);
+        background-image: url("./images/product-page_blueberry_bg.png");
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+
+    .product-page-content-desktop {
+        display: initial;
+    }
+
+    .product-page .product-page-content-desktop h1 {
+        font-size: 9.75rem;
+        line-height: 14.6rem;
+        margin-top: 14.1rem;
+        color: white;
+    }
+
+    .product-page .product-page-content-desktop h2 {
+        font-size: 3.58rem;
+        line-height: 5.4rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .product-page.vegan-true .product-page-content-desktop h2 {
+        color: var(--color-accent);
+    }
+
+    .product-page.vegan-false .product-page-content-desktop h2 {
+        color: var(--color-text-danger);
+    }
+
+    .product-page .product-title-container {
+        padding-top: 0;
+    }
+
+    .product-page .product-info-container,
+    .product-page .written-reviews-container {
+        padding: 0;
+        margin: auto;
+        padding: 0 4.6rem;
+    }
+
+    .product-page .product-info-box-container {
+        margin-top: 4.6rem;
+    }
+
+    .answer-image-container,
+    .product-title-container h1,
+    .product-title-container h2 {
+        display: none;
+    }
+
+    .product-page .product-top.vegan-true,
+    .product-page .product-top.vegan-false {
+        background: none;
+    }
+
+    .product-middle {
+        border-top: none;
+        margin-top: 5.8rem;
+    }
 }
