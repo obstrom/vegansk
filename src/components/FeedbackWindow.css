@@ -13,5 +13,24 @@
 }
 
 .feedback-modal .product-info-accordion .card-body {
+    padding-right: 1.2rem;
     background-color: var(--rating-window-bg-color);
+}
+
+.feedback-modal .product-info-accordion .card-body .checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 0;
+
+    border-top: 1px solid var(--rating-window-separator-color);
+}
+.feedback-modal .product-info-accordion .card-body .checkbox-container:first-child  {
+    border: none;
+}
+
+.feedback-modal .product-info-accordion .card-body .checkbox-container input {
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.8rem;
 }
